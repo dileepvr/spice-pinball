@@ -1,0 +1,69 @@
+********************************************************
+06-03-2014 - Entry by Dileep Reddy
+********************************************************
+
+This is a readme file for developers. New entries may be appended at
+the end with appropriate header containing date and author(s).
+
+This project is not being released with a license at the time of this
+entry. For updates on licensing, check the newer entries below.
+
+The project aims to create a simple Arduino library for use in the
+SPICE summer science camp for middle-school kids, being conducted by
+the Oregon Center for Optics, and partners on the campus of the
+University of Oregon every year. The library is meant to aid in the
+engineering branch of the camp, where teams of participants are
+expected to design and build Pinball tables using basic electronic
+sensors and circuits.
+
+
+The trunk consists of a folder named 'Pinball'.
+It consists of the following files:
+
+notes.h
+Pinball.cpp
+Pinball.h
+README
+
+and a subdirectory named 'examples', with sample programs that
+demonstrate the use of each new class defined in the library.
+
+To use this library via the standard arduino IDE, 
+
+1) Copy the entire 'Pinball' folder into the 'libraries' folder.
+2) Begin your arduino script with the line:
+
+#include <Pinball.h>
+
+The library uses Arduino.h. So you'll need the arduino core library
+files along with the 'Pinball' library if you wish to compile it using
+avr-gcc.
+
+The camp uses the Arduino Uno dev boards, and hence the library is specific to ATMEGA168/328P chip pin-mappings.
+
+The planned usage is:
+
+* 3 Digital pins will be used to update the score on a custom
+score-board which uses shift registers.
+
+* 1 Digital pin will be used to play melodies on a speaker.
+
+* 3 Digital pins will be used to shift out digital control outputs to
+any number of shift latched registers in series.
+
+* 3 Digital pins will be used to address an 8-channel multiplexer to read digital sensor inputs.
+
+* 6 Analog input pins are to be used for optional analog sensors.
+
+* Remaining digital pins may be used any way the team chooses.
+
+
+
+As of this entry, there are two classes defined:
+
+Pb_speaker - Meant to play melodies asynchronously on a speaker.
+Pb_outputs - Meant to shift out byte-arrays to shift registers.
+
+End of entry
+
+********************************************************
