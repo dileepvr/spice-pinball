@@ -67,3 +67,15 @@ Pb_outputs - Meant to shift out byte-arrays to shift registers.
 End of entry
 
 ********************************************************
+06-09-2014 - Entry by Dileep Reddy
+********************************************************
+
+No license yet.
+
+New classes defined:
+
+Pb_switch - Meant to check for toggles with debouncing.
+Pb_stopwatch - Meant to keep time (milliseconds).
+
+********************************************************
+
