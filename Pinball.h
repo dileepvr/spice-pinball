@@ -47,4 +47,33 @@ class Pb_outputs
 };
 
 
+// This class is for debouncing digital inputs shorting to ground.
+// Push buttons, for example. Use for toggles only.
+class Pb_switch
+{
+ public:
+  Pb_switch(uint8_t dtime);
+  boolean pushed(boolean val);
+  boolean released(boolean val);
+ private:
+  uint8_t _dt;
+  unsigned long _ctime;
+  boolean _flag;
+};
+
+
+// Simple millisecond stopwatch.
+class Pb_stopwatch
+{
+ public:
+  Pb_stopwatch();
+  void start();
+  void stop();
+  unsigned long time();
+ private:
+  unsigned long _stime, _time;
+  boolean _flag;
+};
+
+
 #endif

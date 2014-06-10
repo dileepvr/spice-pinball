@@ -108,3 +108,57 @@ void Pb_outputs::update(byte* bitarray)
   *_lport |= (1 << _lpin); // Latch high
 
 }
+
+
+// Debounce time in milliseconds as argument
+Pb_switch::Pb_switch(uint8_t dtime)
+{
+  _dt = dtime;
+  _flag = false;
+  _ctime = millis();
+}
+
+
+// To check if it was pushed down
+boolean Pb_switch::pushed(boolean val)
+{
+  if (millis() - _ctime > _dt) {
+    _flag = false;
+  }
+  if (!val && !_flag) {
+    _flag = true;
+    _ctime = millis();
+    return true;
+  } else {
+    return false;
+  }
+}
+
+
+// Simple millisecond stopwatch
+Pb_stopwatch::Pb_stopwatch()
+{
+  _flag = false;
+  _time = 0;
+  _stime = 0;
+}
+
+
+void Pb_stopwatch::start()
+{
+  _flag = true;
+  _stime = millis();
+}
+
+void Pb_stopwatch::stop()
+{
+  _flag = false;
+  _time = millis() - _stime;
+}
+
+// Don't need to stop to check time elapsed
+unsigned long Pb_stopwatch::time()
+{
+  if (_flag) { return (millis() - _stime); }
+  else       { return _time; }
+}
