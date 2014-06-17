@@ -1,0 +1,59 @@
+Cmp-Mod V01 Created by CvPcb (2012-apr-16-27)-stable date = Tue 17 Jun 2014 09:39:59 AM PDT
+
+BeginCmp
+TimeStamp = /53A03148;
+Reference = AFF1;
+ValeurCmp = 7SEGMENTS;
+IdModule  = WES_7SEGMENT;
+EndCmp
+
+BeginCmp
+TimeStamp = /53A05774;
+Reference = AFF2;
+ValeurCmp = 7SEGMENTS;
+IdModule  = WES_7SEGMENT;
+EndCmp
+
+BeginCmp
+TimeStamp = /53A05930;
+Reference = P1;
+ValeurCmp = CONN_8;
+IdModule  = SIL-8;
+EndCmp
+
+BeginCmp
+TimeStamp = /53A059F9;
+Reference = P2;
+ValeurCmp = CONN_2;
+IdModule  = SIL-2;
+EndCmp
+
+BeginCmp
+TimeStamp = /53A05E5A;
+Reference = RP1;
+ValeurCmp = R_PACK8;
+IdModule  = WES_R8ARRAY;
+EndCmp
+
+BeginCmp
+TimeStamp = /53A05E6F;
+Reference = RP2;
+ValeurCmp = R_PACK8;
+IdModule  = WES_R8ARRAY;
+EndCmp
+
+BeginCmp
+TimeStamp = /53A02F11;
+Reference = WES1;
+ValeurCmp = 8BITSHIFT;
+IdModule  = DIP-16__300;
+EndCmp
+
+BeginCmp
+TimeStamp = /53A05776;
+Reference = WES2;
+ValeurCmp = 8BITSHIFT;
+IdModule  = DIP-16__300;
+EndCmp
+
+EndListe
