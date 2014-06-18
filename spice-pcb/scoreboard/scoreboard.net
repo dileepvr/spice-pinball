@@ -1,114 +1,249 @@
-# EESchema Netlist Version 1.1 created  Tue 17 Jun 2014 09:39:59 AM PDT
+# EESchema Netlist Version 1.1 created  Wed 18 Jun 2014 09:08:37 AM PDT
 (
- ( /53A03148 WES_7SEGMENT AFF1 7SEGMENTS
-  ( 1 N-000007 )
-  ( 2 N-000008 )
-  ( 3 VCC )
-  ( 4 N-000009 )
-  ( 5 N-000013 )
-  ( 6 N-000010 )
-  ( 7 N-000011 )
-  ( 8 VCC )
-  ( 9 N-000006 )
-  ( 10 N-000005 )
+ ( /53A05E6F $noname  RP2 R_PACK8 {Lib=R_PACK8}
+  (    1 N-000034 )
+  (    2 N-000033 )
+  (    3 N-000032 )
+  (    4 N-000031 )
+  (    5 N-000030 )
+  (    6 N-000035 )
+  (    7 N-000036 )
+  (    8 N-000039 )
+  (    9 N-000023 )
+  (   10 N-000022 )
+  (   11 N-000021 )
+  (   12 N-000010 )
+  (   13 N-000003 )
+  (   14 N-000038 )
+  (   15 N-000041 )
+  (   16 N-000029 )
  )
- ( /53A05774 WES_7SEGMENT AFF2 7SEGMENTS
-  ( 1 N-000027 )
-  ( 2 N-000028 )
-  ( 3 VCC )
-  ( 4 N-000029 )
-  ( 5 N-000035 )
-  ( 6 N-000030 )
-  ( 7 N-000031 )
-  ( 8 VCC )
-  ( 9 N-000032 )
-  ( 10 N-000033 )
+ ( /53A05E5A $noname  RP1 R_PACK8 {Lib=R_PACK8}
+  (    1 N-000014 )
+  (    2 N-000013 )
+  (    3 N-000011 )
+  (    4 N-000017 )
+  (    5 N-000037 )
+  (    6 N-000015 )
+  (    7 N-000004 )
+  (    8 N-000012 )
+  (    9 N-000042 )
+  (   10 N-000005 )
+  (   11 N-000006 )
+  (   12 N-000007 )
+  (   13 N-000008 )
+  (   14 N-000009 )
+  (   15 N-000016 )
+  (   16 N-000020 )
  )
- ( /53A05930 SIL-8 P1 CONN_8
-  ( 1 VCC )
-  ( 2 GND )
-  ( 3 Serial_Input )
-  ( 4 Serial_Clock )
-  ( 5 Reg_Clock )
-  ( 6 SCLR_BAR )
-  ( 7 OE_BAR )
-  ( 8 ? )
+ ( /53A059F9 $noname  P2 CONN_2 {Lib=CONN_2}
+  (    1 Serial_Clock )
+  (    2 Reg_Clock )
  )
- ( /53A059F9 SIL-2 P2 CONN_2
-  ( 1 Serial_Clock )
-  ( 2 Reg_Clock )
+ ( /53A05930 $noname  P1 CONN_8 {Lib=CONN_8}
+  (    1 VCC )
+  (    2 GND )
+  (    3 Serial_Input )
+  (    4 Serial_Clock )
+  (    5 Reg_Clock )
+  (    6 SCLR_BAR )
+  (    7 OE_BAR )
+  (    8 ? )
  )
- ( /53A05E5A WES_R8ARRAY RP1 R_PACK8
-  ( 1 N-000040 )
-  ( 2 N-000014 )
-  ( 3 N-000041 )
-  ( 4 N-000042 )
-  ( 5 N-000036 )
-  ( 6 N-000026 )
-  ( 7 N-000004 )
-  ( 8 N-000039 )
-  ( 9 N-000013 )
-  ( 10 N-000005 )
-  ( 11 N-000006 )
-  ( 12 N-000007 )
-  ( 13 N-000008 )
-  ( 14 N-000009 )
-  ( 15 N-000010 )
-  ( 16 N-000011 )
+ ( /53A05776 MODULE  WES2 8BITSHIFT {Lib=8BITSHIFT}
+  (    1 N-000041 )
+  (    2 N-000038 )
+  (    3 N-000003 )
+  (    4 N-000010 )
+  (    5 N-000021 )
+  (    6 N-000022 )
+  (    7 N-000023 )
+  (    8 GND )
+  (    9 ? )
+  (   10 SCLR_BAR )
+  (   11 Serial_Clock )
+  (   12 Reg_Clock )
+  (   13 OE_BAR )
+  (   14 N-000040 )
+  (   15 N-000029 )
+  (   16 VCC )
  )
- ( /53A05E6F WES_R8ARRAY RP2 R_PACK8
-  ( 1 N-000025 )
-  ( 2 N-000038 )
-  ( 3 N-000034 )
-  ( 4 N-000003 )
-  ( 5 N-000012 )
-  ( 6 N-000017 )
-  ( 7 N-000018 )
-  ( 8 N-000019 )
-  ( 9 N-000035 )
-  ( 10 N-000033 )
-  ( 11 N-000032 )
-  ( 12 N-000027 )
-  ( 13 N-000028 )
-  ( 14 N-000029 )
-  ( 15 N-000030 )
-  ( 16 N-000031 )
+ ( /53A05774 $noname  AFF2 7SEGMENTS {Lib=7SEGMENTS}
+  (    1 N-000030 )
+  (    2 N-000031 )
+  (    3 VCC )
+  (    4 N-000032 )
+  (    5 N-000039 )
+  (    6 N-000033 )
+  (    7 N-000034 )
+  (    8 VCC )
+  (    9 N-000035 )
+  (   10 N-000036 )
  )
- ( /53A02F11 DIP-16__300 WES1 8BITSHIFT
-  ( 1 N-000014 )
-  ( 2 N-000041 )
-  ( 3 N-000042 )
-  ( 4 N-000036 )
-  ( 5 N-000026 )
-  ( 6 N-000004 )
-  ( 7 N-000039 )
-  ( 8 GND )
-  ( 9 N-000037 )
-  ( 10 SCLR_BAR )
-  ( 11 Serial_Clock )
-  ( 12 Reg_Clock )
-  ( 13 OE_BAR )
-  ( 14 Serial_Input )
-  ( 15 N-000040 )
-  ( 16 VCC )
+ ( /53A03148 $noname  AFF1 7SEGMENTS {Lib=7SEGMENTS}
+  (    1 N-000037 )
+  (    2 N-000017 )
+  (    3 VCC )
+  (    4 N-000011 )
+  (    5 N-000012 )
+  (    6 N-000013 )
+  (    7 N-000014 )
+  (    8 VCC )
+  (    9 N-000015 )
+  (   10 N-000004 )
  )
- ( /53A05776 DIP-16__300 WES2 8BITSHIFT
-  ( 1 N-000038 )
-  ( 2 N-000034 )
-  ( 3 N-000003 )
-  ( 4 N-000012 )
-  ( 5 N-000017 )
-  ( 6 N-000018 )
-  ( 7 N-000019 )
-  ( 8 GND )
-  ( 9 ? )
-  ( 10 SCLR_BAR )
-  ( 11 Serial_Clock )
-  ( 12 Reg_Clock )
-  ( 13 OE_BAR )
-  ( 14 N-000037 )
-  ( 15 N-000025 )
-  ( 16 VCC )
+ ( /53A02F11 MODULE  WES1 8BITSHIFT {Lib=8BITSHIFT}
+  (    1 N-000016 )
+  (    2 N-000009 )
+  (    3 N-000008 )
+  (    4 N-000007 )
+  (    5 N-000006 )
+  (    6 N-000005 )
+  (    7 N-000042 )
+  (    8 GND )
+  (    9 N-000040 )
+  (   10 SCLR_BAR )
+  (   11 Serial_Clock )
+  (   12 Reg_Clock )
+  (   13 OE_BAR )
+  (   14 Serial_Input )
+  (   15 N-000020 )
+  (   16 VCC )
  )
 )
 *
+{ Pin List by Nets
+Net 1 "VCC" "VCC"
+ AFF1 8
+ AFF2 3
+ AFF2 8
+ WES2 16
+ AFF1 3
+ P1 1
+ WES1 16
+Net 3 "" ""
+ WES2 3
+ RP2 13
+Net 4 "" ""
+ RP1 7
+ AFF1 10
+Net 5 "" ""
+ RP1 10
+ WES1 6
+Net 6 "" ""
+ WES1 5
+ RP1 11
+Net 7 "" ""
+ WES1 4
+ RP1 12
+Net 8 "" ""
+ RP1 13
+ WES1 3
+Net 9 "" ""
+ RP1 14
+ WES1 2
+Net 10 "" ""
+ RP2 12
+ WES2 4
+Net 11 "" ""
+ RP1 3
+ AFF1 4
+Net 12 "" ""
+ AFF1 5
+ RP1 8
+Net 13 "" ""
+ RP1 2
+ AFF1 6
+Net 14 "" ""
+ AFF1 7
+ RP1 1
+Net 15 "" ""
+ AFF1 9
+ RP1 6
+Net 16 "" ""
+ RP1 15
+ WES1 1
+Net 17 "" ""
+ RP1 4
+ AFF1 2
+Net 18 "GND" "GND"
+ WES1 8
+ P1 2
+ WES2 8
+Net 19 "Serial Input" "Serial Input"
+ P1 3
+ WES1 14
+Net 20 "" ""
+ RP1 16
+ WES1 15
+Net 21 "" ""
+ WES2 5
+ RP2 11
+Net 22 "" ""
+ RP2 10
+ WES2 6
+Net 23 "" ""
+ WES2 7
+ RP2 9
+Net 25 "SCLR_BAR" "SCLR_BAR"
+ P1 6
+ WES1 10
+ WES2 10
+Net 26 "Serial Clock" "Serial Clock"
+ WES1 11
+ P1 4
+ WES2 11
+ P2 1
+Net 27 "Reg Clock" "Reg Clock"
+ P2 2
+ WES1 12
+ P1 5
+ WES2 12
+Net 28 "OE_BAR" "OE_BAR"
+ P1 7
+ WES2 13
+ WES1 13
+Net 29 "" ""
+ RP2 16
+ WES2 15
+Net 30 "" ""
+ RP2 5
+ AFF2 1
+Net 31 "" ""
+ RP2 4
+ AFF2 2
+Net 32 "" ""
+ RP2 3
+ AFF2 4
+Net 33 "" ""
+ RP2 2
+ AFF2 6
+Net 34 "" ""
+ RP2 1
+ AFF2 7
+Net 35 "" ""
+ RP2 6
+ AFF2 9
+Net 36 "" ""
+ AFF2 10
+ RP2 7
+Net 37 "" ""
+ RP1 5
+ AFF1 1
+Net 38 "" ""
+ RP2 14
+ WES2 2
+Net 39 "" ""
+ RP2 8
+ AFF2 5
+Net 40 "" ""
+ WES2 14
+ WES1 9
+Net 41 "" ""
+ WES2 1
+ RP2 15
+Net 42 "" ""
+ WES1 7
+ RP1 9
+}
+#End

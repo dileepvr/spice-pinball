@@ -1,1 +1,3 @@
 Use http://kicad.rohrbacher.net/quicklib.php for quick library generation.
+
+The open source Freerouter used with Kicad has been taken down due to legal issues. A version is currently avaliable at https://github.com/nikropht/FreeRouting but might not be indefinitely.

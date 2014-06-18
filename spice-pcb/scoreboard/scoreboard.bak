@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date Tue 17 Jun 2014 08:11:58 AM PDT
+EESchema Schematic File Version 2  date Tue 17 Jun 2014 08:28:34 AM PDT
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -46,76 +46,6 @@ Comment2 ""
 Comment3 ""
 Comment4 ""
 $EndDescr
-Text GLabel 7350 2150 2    60   Input ~ 0
-VCC
-Text GLabel 7350 2050 2    60   Input ~ 0
-VCC
-Text GLabel 7350 4050 2    60   Input ~ 0
-VCC
-Text GLabel 7350 3950 2    60   Input ~ 0
-VCC
-Text GLabel 3200 6300 0    60   Input ~ 0
-Reg Clock
-Text GLabel 3200 6100 0    60   Input ~ 0
-Serial Clock
-$Comp
-L CONN_2 P2
-U 1 1 53A059F9
-P 3550 6200
-F 0 "P2" V 3500 6200 40  0000 C CNN
-F 1 "CONN_2" V 3600 6200 40  0000 C CNN
-	1    3550 6200
-	1    0    0    -1  
-$EndComp
-Text GLabel 3200 5750 0    60   Input ~ 0
-OE_BAR
-Text GLabel 3200 5650 0    60   Input ~ 0
-SCLR_BAR
-Text GLabel 3200 5450 0    60   Input ~ 0
-Serial Clock
-Text GLabel 3200 5550 0    60   Input ~ 0
-Reg Clock
-Text GLabel 3200 5350 0    60   Input ~ 0
-Serial Input
-Text GLabel 3200 5250 0    60   Input ~ 0
-GND
-Text GLabel 1800 4600 0    60   Input ~ 0
-GND
-Text GLabel 1800 2700 0    60   Input ~ 0
-GND
-Text GLabel 3200 5150 0    60   Input ~ 0
-VCC
-$Comp
-L CONN_8 P1
-U 1 1 53A05930
-P 3550 5500
-F 0 "P1" V 3500 5500 60  0000 C CNN
-F 1 "CONN_8" V 3600 5500 60  0000 C CNN
-	1    3550 5500
-	1    0    0    -1  
-$EndComp
-Text GLabel 3300 4500 2    60   Input ~ 0
-SCLR_BAR
-Text GLabel 3300 2600 2    60   Input ~ 0
-SCLR_BAR
-Text GLabel 3300 4400 2    60   Input ~ 0
-Serial Clock
-Text GLabel 3300 2500 2    60   Input ~ 0
-Serial Clock
-Text GLabel 3300 4300 2    60   Input ~ 0
-Reg Clock
-Text GLabel 3300 2400 2    60   Input ~ 0
-Reg Clock
-Text GLabel 3300 4200 2    60   Input ~ 0
-OE_BAR
-Text GLabel 3300 2300 2    60   Input ~ 0
-OE_BAR
-Text GLabel 3300 2200 2    60   Input ~ 0
-Serial Input
-Text GLabel 3300 3900 2    60   Input ~ 0
-VCC
-Text GLabel 3300 2000 2    60   Input ~ 0
-VCC
 Wire Wire Line
 	3300 4100 3550 4100
 Wire Wire Line
@@ -193,13 +123,13 @@ Wire Wire Line
 Wire Wire Line
 	4050 4600 4650 4600
 Wire Wire Line
-	6150 4700 7350 4700
+	5050 4700 6250 4700
 Wire Wire Line
-	7350 4700 7350 4650
+	6250 4700 6250 4650
 Wire Wire Line
-	7350 2750 7350 2800
+	6250 2750 6250 2800
 Wire Wire Line
-	7350 2800 6150 2800
+	6250 2800 5050 2800
 Wire Wire Line
 	4650 2700 4050 2700
 Wire Wire Line
@@ -271,6 +201,94 @@ Wire Wire Line
 Wire Wire Line
 	1200 2600 1800 2600
 $Comp
+L R_PACK8 RP2
+U 1 1 53A05E6F
+P 4850 4350
+F 0 "RP2" H 4850 4800 40  0000 C CNN
+F 1 "R_PACK8" H 4850 3900 40  0000 C CNN
+	1    4850 4350
+	1    0    0    -1  
+$EndComp
+$Comp
+L R_PACK8 RP1
+U 1 1 53A05E5A
+P 4850 2450
+F 0 "RP1" H 4850 2900 40  0000 C CNN
+F 1 "R_PACK8" H 4850 2000 40  0000 C CNN
+	1    4850 2450
+	1    0    0    -1  
+$EndComp
+Text GLabel 6250 2150 2    60   Input ~ 0
+VCC
+Text GLabel 6250 2050 2    60   Input ~ 0
+VCC
+Text GLabel 6250 4050 2    60   Input ~ 0
+VCC
+Text GLabel 6250 3950 2    60   Input ~ 0
+VCC
+Text GLabel 3200 6300 0    60   Input ~ 0
+Reg Clock
+Text GLabel 3200 6100 0    60   Input ~ 0
+Serial Clock
+$Comp
+L CONN_2 P2
+U 1 1 53A059F9
+P 3550 6200
+F 0 "P2" V 3500 6200 40  0000 C CNN
+F 1 "CONN_2" V 3600 6200 40  0000 C CNN
+	1    3550 6200
+	1    0    0    -1  
+$EndComp
+Text GLabel 3200 5750 0    60   Input ~ 0
+OE_BAR
+Text GLabel 3200 5650 0    60   Input ~ 0
+SCLR_BAR
+Text GLabel 3200 5450 0    60   Input ~ 0
+Serial Clock
+Text GLabel 3200 5550 0    60   Input ~ 0
+Reg Clock
+Text GLabel 3200 5350 0    60   Input ~ 0
+Serial Input
+Text GLabel 3200 5250 0    60   Input ~ 0
+GND
+Text GLabel 1800 4600 0    60   Input ~ 0
+GND
+Text GLabel 1800 2700 0    60   Input ~ 0
+GND
+Text GLabel 3200 5150 0    60   Input ~ 0
+VCC
+$Comp
+L CONN_8 P1
+U 1 1 53A05930
+P 3550 5500
+F 0 "P1" V 3500 5500 60  0000 C CNN
+F 1 "CONN_8" V 3600 5500 60  0000 C CNN
+	1    3550 5500
+	1    0    0    -1  
+$EndComp
+Text GLabel 3300 4500 2    60   Input ~ 0
+SCLR_BAR
+Text GLabel 3300 2600 2    60   Input ~ 0
+SCLR_BAR
+Text GLabel 3300 4400 2    60   Input ~ 0
+Serial Clock
+Text GLabel 3300 2500 2    60   Input ~ 0
+Serial Clock
+Text GLabel 3300 4300 2    60   Input ~ 0
+Reg Clock
+Text GLabel 3300 2400 2    60   Input ~ 0
+Reg Clock
+Text GLabel 3300 4200 2    60   Input ~ 0
+OE_BAR
+Text GLabel 3300 2300 2    60   Input ~ 0
+OE_BAR
+Text GLabel 3300 2200 2    60   Input ~ 0
+Serial Input
+Text GLabel 3300 3900 2    60   Input ~ 0
+VCC
+Text GLabel 3300 2000 2    60   Input ~ 0
+VCC
+$Comp
 L 8BITSHIFT WES2
 U 1 1 53A05776
 P 2550 4250
@@ -282,43 +300,21 @@ F 3 "DOCUMENTATION" H 2550 4250 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L RESITOR_ARRAY WES4
-U 1 1 53A05775
-P 5400 4350
-F 0 "WES4" H 5400 4250 50  0000 C CNN
-F 1 "RESITOR_ARRAY" H 5400 4450 50  0000 C CNN
-F 2 "MODULE" H 5400 4350 50  0001 C CNN
-F 3 "DOCUMENTATION" H 5400 4350 50  0001 C CNN
-	1    5400 4350
-	1    0    0    -1  
-$EndComp
-$Comp
 L 7SEGMENTS AFF2
 U 1 1 53A05774
-P 6750 4400
-F 0 "AFF2" H 6750 4950 60  0000 C CNN
-F 1 "7SEGMENTS" H 6750 3950 60  0000 C CNN
-	1    6750 4400
+P 5650 4400
+F 0 "AFF2" H 5650 4950 60  0000 C CNN
+F 1 "7SEGMENTS" H 5650 3950 60  0000 C CNN
+	1    5650 4400
 	1    0    0    -1  
 $EndComp
 $Comp
 L 7SEGMENTS AFF1
 U 1 1 53A03148
-P 6750 2500
-F 0 "AFF1" H 6750 3050 60  0000 C CNN
-F 1 "7SEGMENTS" H 6750 2050 60  0000 C CNN
-	1    6750 2500
-	1    0    0    -1  
-$EndComp
-$Comp
-L RESITOR_ARRAY WES3
-U 1 1 53A03071
-P 5400 2450
-F 0 "WES3" H 5400 2350 50  0000 C CNN
-F 1 "RESITOR_ARRAY" H 5400 2550 50  0000 C CNN
-F 2 "MODULE" H 5400 2450 50  0001 C CNN
-F 3 "DOCUMENTATION" H 5400 2450 50  0001 C CNN
-	1    5400 2450
+P 5650 2500
+F 0 "AFF1" H 5650 3050 60  0000 C CNN
+F 1 "7SEGMENTS" H 5650 2050 60  0000 C CNN
+	1    5650 2500
 	1    0    0    -1  
 $EndComp
 $Comp

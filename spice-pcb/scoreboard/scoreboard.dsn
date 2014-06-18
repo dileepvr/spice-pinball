@@ -1,9 +1,9 @@
-(pcb "/home/p3/Spice/spice-pcb/scoreboard/scoreboard.dsn"
+(pcb "/home/wwe/spice/spice-pinball/spice-pcb/scoreboard/scoreboard.dsn"
   (parser
     (string_quote ")
     (space_in_quoted_tokens on)
-    (host_cad "KiCad's Pcbnew")
-    (host_version "(2012-apr-16-27)-stable")
+    (host_cad "Kicad's PCBNEW")
+    (host_version "(2011-05-25)-stable")
   )
   (resolution mil 10)
   (unit mil)
@@ -43,8 +43,8 @@
       (place WES2 1450 -1100 front 0 (PN 8BITSHIFT))
     )
     (component WES_R8ARRAY
-      (place RP1 2300 -1000 back 90 (PN R_PACK8))
-      (place RP2 1275 -1125 back 180 (PN R_PACK8))
+      (place RP1 2300 -1010 back 90 (PN R_PACK8))
+      (place RP2 1260 -1120 back 180 (PN R_PACK8))
     )
     (component WES_7SEGMENT
       (place AFF1 1575 -1475 back 180 (PN 7SEGMENTS))
@@ -170,103 +170,103 @@
       (pins P1-2 WES1-8 WES2-8)
     )
     (net "N-000003"
-      (pins WES2-3 RP2-4)
+      (pins WES2-3 RP2-13)
     )
     (net "N-000004"
-      (pins WES1-6 RP1-7)
+      (pins RP1-7 AFF1-10)
     )
     (net "N-000005"
-      (pins RP1-10 AFF1-10)
+      (pins WES1-6 RP1-10)
     )
     (net "N-000006"
-      (pins RP1-11 AFF1-9)
+      (pins WES1-5 RP1-11)
     )
     (net "N-000007"
-      (pins RP1-12 AFF1-1)
+      (pins WES1-4 RP1-12)
     )
     (net "N-000008"
-      (pins RP1-13 AFF1-2)
+      (pins WES1-3 RP1-13)
     )
     (net "N-000009"
-      (pins RP1-14 AFF1-4)
+      (pins WES1-2 RP1-14)
     )
     (net "N-000010"
-      (pins RP1-15 AFF1-6)
+      (pins WES2-4 RP2-12)
     )
     (net "N-000011"
-      (pins RP1-16 AFF1-7)
+      (pins RP1-3 AFF1-4)
     )
     (net "N-000012"
-      (pins WES2-4 RP2-5)
+      (pins RP1-8 AFF1-5)
     )
     (net "N-000013"
-      (pins RP1-9 AFF1-5)
+      (pins RP1-2 AFF1-6)
     )
     (net "N-000014"
-      (pins WES1-1 RP1-2)
+      (pins RP1-1 AFF1-7)
+    )
+    (net "N-000015"
+      (pins RP1-6 AFF1-9)
+    )
+    (net "N-000016"
+      (pins WES1-1 RP1-15)
     )
     (net "N-000017"
-      (pins WES2-5 RP2-6)
+      (pins RP1-4 AFF1-2)
     )
-    (net "N-000018"
-      (pins WES2-6 RP2-7)
+    (net "N-000020"
+      (pins WES1-15 RP1-16)
     )
-    (net "N-000019"
-      (pins WES2-7 RP2-8)
+    (net "N-000021"
+      (pins WES2-5 RP2-11)
     )
-    (net "N-000025"
-      (pins WES2-15 RP2-1)
+    (net "N-000022"
+      (pins WES2-6 RP2-10)
     )
-    (net "N-000026"
-      (pins WES1-5 RP1-6)
-    )
-    (net "N-000027"
-      (pins RP2-12 AFF2-1)
-    )
-    (net "N-000028"
-      (pins RP2-13 AFF2-2)
+    (net "N-000023"
+      (pins WES2-7 RP2-9)
     )
     (net "N-000029"
-      (pins RP2-14 AFF2-4)
+      (pins WES2-15 RP2-16)
     )
     (net "N-000030"
-      (pins RP2-15 AFF2-6)
+      (pins RP2-5 AFF2-1)
     )
     (net "N-000031"
-      (pins RP2-16 AFF2-7)
+      (pins RP2-4 AFF2-2)
     )
     (net "N-000032"
-      (pins RP2-11 AFF2-9)
+      (pins RP2-3 AFF2-4)
     )
     (net "N-000033"
-      (pins RP2-10 AFF2-10)
+      (pins RP2-2 AFF2-6)
     )
     (net "N-000034"
-      (pins WES2-2 RP2-3)
+      (pins RP2-1 AFF2-7)
     )
     (net "N-000035"
-      (pins RP2-9 AFF2-5)
+      (pins RP2-6 AFF2-9)
     )
     (net "N-000036"
-      (pins WES1-4 RP1-5)
+      (pins RP2-7 AFF2-10)
     )
     (net "N-000037"
-      (pins WES1-9 WES2-14)
+      (pins RP1-5 AFF1-1)
     )
     (net "N-000038"
-      (pins WES2-1 RP2-2)
+      (pins WES2-2 RP2-14)
     )
     (net "N-000039"
-      (pins WES1-7 RP1-8)
+      (pins RP2-8 AFF2-5)
     )
     (net "N-000040"
-      (pins WES1-15 RP1-1)
+      (pins WES1-9 WES2-14)
     )
     (net "N-000041"
-      (pins WES1-2 RP1-3)
+      (pins WES2-1 RP2-15)
     )
     (net "N-000042"
-      (pins WES1-3 RP1-4)
+      (pins WES1-7 RP1-9)
     )
     (net OE_BAR
       (pins P1-7 WES1-13 WES2-13)
@@ -288,8 +288,8 @@
     )
     (class kicad_default "" GND "N-000003" "N-000004" "N-000005" "N-000006"
       "N-000007" "N-000008" "N-000009" "N-000010" "N-000011" "N-000012" "N-000013"
-      "N-000014" "N-000017" "N-000018" "N-000019" "N-000025" "N-000026" "N-000027"
-      "N-000028" "N-000029" "N-000030" "N-000031" "N-000032" "N-000033" "N-000034"
+      "N-000014" "N-000015" "N-000016" "N-000017" "N-000020" "N-000021" "N-000022"
+      "N-000023" "N-000029" "N-000030" "N-000031" "N-000032" "N-000033" "N-000034"
       "N-000035" "N-000036" "N-000037" "N-000038" "N-000039" "N-000040" "N-000041"
       "N-000042" OE_BAR Reg_Clock SCLR_BAR Serial_Clock Serial_Input VCC
       (circuit
