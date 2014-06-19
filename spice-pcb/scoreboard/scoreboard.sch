@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date Thu 19 Jun 2014 10:26:47 AM PDT
+EESchema Schematic File Version 2  date Thu 19 Jun 2014 09:07:59 AM PDT
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -46,6 +46,23 @@ Comment2 ""
 Comment3 ""
 Comment4 ""
 $EndDescr
+Text GLabel 4400 6300 0    60   Input ~ 0
+Speaker2
+Text GLabel 4400 6100 0    60   Input ~ 0
+Speaker1
+Text GLabel 3200 5750 0    60   Input ~ 0
+Speaker2
+Text GLabel 3200 5650 0    60   Input ~ 0
+Speaker1
+$Comp
+L CONN_2 P3
+U 1 1 53A30A7E
+P 4750 6200
+F 0 "P3" V 4700 6200 40  0000 C CNN
+F 1 "CONN_2" V 4800 6200 40  0000 C CNN
+	1    4750 6200
+	1    0    0    -1  
+$EndComp
 Wire Wire Line
 	4250 5250 4450 5250
 Wire Wire Line
