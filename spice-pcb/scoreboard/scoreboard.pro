@@ -1,4 +1,4 @@
-update=Tue 17 Jun 2014 09:16:58 AM PDT
+update=Thu 19 Jun 2014 10:58:03 AM PDT
 version=1
 last_client=pcbnew
 [cvpcb]
@@ -88,7 +88,7 @@ DrawLar=150
 EdgeLar=150
 TxtLar=120
 MSegLar=150
-LastNetListRead=
+LastNetListRead=scoreboard.net
 [pcbnew/libraries]
 LibDir=
 LibName1=sockets
@@ -98,8 +98,7 @@ LibName4=pin_array
 LibName5=divers
 LibName6=libcms
 LibName7=display
-LibName8=led
-LibName9=dip_sockets
-LibName10=pga_sockets
-LibName11=valves
-LibName12=/home/p3/Spice/spice-pcb/scoreboard/lib/WES_R8ARRAY
+LibName8=valves
+LibName9=led
+LibName10=dip_sockets
+LibName11=/home/wwe/spice/spice-pinball/spice-pcb/scoreboard/lib/WES_R8ARRAY

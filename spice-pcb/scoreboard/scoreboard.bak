@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date Tue 17 Jun 2014 08:28:34 AM PDT
+EESchema Schematic File Version 2  date Wed 18 Jun 2014 09:06:52 AM PDT
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -38,7 +38,7 @@ $Descr A4 11700 8267
 encoding utf-8
 Sheet 1 1
 Title ""
-Date "17 jun 2014"
+Date "18 jun 2014"
 Rev ""
 Comp ""
 Comment1 ""
@@ -207,7 +207,7 @@ P 4850 4350
 F 0 "RP2" H 4850 4800 40  0000 C CNN
 F 1 "R_PACK8" H 4850 3900 40  0000 C CNN
 	1    4850 4350
-	1    0    0    -1  
+	-1   0    0    -1  
 $EndComp
 $Comp
 L R_PACK8 RP1
@@ -216,7 +216,7 @@ P 4850 2450
 F 0 "RP1" H 4850 2900 40  0000 C CNN
 F 1 "R_PACK8" H 4850 2000 40  0000 C CNN
 	1    4850 2450
-	1    0    0    -1  
+	-1   0    0    -1  
 $EndComp
 Text GLabel 6250 2150 2    60   Input ~ 0
 VCC

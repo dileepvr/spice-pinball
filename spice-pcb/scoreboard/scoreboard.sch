@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date Wed 18 Jun 2014 09:06:52 AM PDT
+EESchema Schematic File Version 2  date Thu 19 Jun 2014 10:26:47 AM PDT
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -38,7 +38,7 @@ $Descr A4 11700 8267
 encoding utf-8
 Sheet 1 1
 Title ""
-Date "18 jun 2014"
+Date "19 jun 2014"
 Rev ""
 Comp ""
 Comment1 ""
@@ -46,6 +46,8 @@ Comment2 ""
 Comment3 ""
 Comment4 ""
 $EndDescr
+Wire Wire Line
+	4250 5250 4450 5250
 Wire Wire Line
 	3300 4100 3550 4100
 Wire Wire Line
@@ -200,6 +202,12 @@ Wire Wire Line
 	1200 1100 1200 2600
 Wire Wire Line
 	1200 2600 1800 2600
+Wire Wire Line
+	4250 5100 4450 5100
+Text GLabel 4450 5250 2    60   Input ~ 0
+VCC
+Text GLabel 4450 5100 2    60   Input ~ 0
+GND
 $Comp
 L R_PACK8 RP2
 U 1 1 53A05E6F
@@ -239,9 +247,9 @@ F 1 "CONN_2" V 3600 6200 40  0000 C CNN
 	1    3550 6200
 	1    0    0    -1  
 $EndComp
-Text GLabel 3200 5750 0    60   Input ~ 0
+Text GLabel 4250 5100 0    60   Input ~ 0
 OE_BAR
-Text GLabel 3200 5650 0    60   Input ~ 0
+Text GLabel 4250 5250 0    60   Input ~ 0
 SCLR_BAR
 Text GLabel 3200 5450 0    60   Input ~ 0
 Serial Clock
