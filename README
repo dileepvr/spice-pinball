@@ -78,10 +78,15 @@ Pb_switch - Meant to check for toggles with debouncing.
 Pb_stopwatch - Meant to keep time (milliseconds).
 
 ********************************************************
-
-********************************************************
 06-17-2014 - Entry by Wesley Erickson
 ********************************************************
 
 Added folder for printed circuit board designs in spice-pcb/
 Added scoreboard pcb draft.
+
+********************************************************
+06-19-2014 - Entry by Wesley Erickson
+********************************************************
+
+Finalized scoreboard pcb draft (and added speaker). Submitted
+gerber files stored in spice-pcb/scoreboard/order1.tar.gz
