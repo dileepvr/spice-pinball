@@ -21,13 +21,18 @@ class Pb_speaker
  public:
   Pb_speaker(uint8_t pin);
   void stop();
+  void loopstop();
   void start(int* melody, int* timing, int len);
+  void loopstart(int* lmelody, int* ltiming, int llen);
   void update();
  private:
   uint8_t _pin;
   int* _melody;
+  int* _lmelody;
   int* _timing;
-  int _melsize, _curpos, _pflag;
+  int* _ltiming;
+  int _melsize,  _curpos, _pflag;
+  int _lmelsize,  _lcurpos, _lflag;
   unsigned long _curtime;
 };
 
@@ -75,5 +80,31 @@ class Pb_stopwatch
   boolean _flag;
 };
 
+
+// Test for passing function pointers as arguments
+void testfunc (void (*f)(), int );
+
+
+// This is used to execute a function in a timed sequence
+// for an array of integers and timelengths as arguments.
+class Pb_timedevent
+{
+ public:
+  Pb_timedevent( void (*func)(int ) );
+  void stop();
+  void loopstop();
+  void start(int* iarray, int* timing, int len);
+  void loopstart(int* liarray, int* ltiming, int llen);
+  void update();
+ private:
+  void (*_f)(int );
+  int* _iarray;
+  int* _liarray;
+  int* _timing;
+  int* _ltiming;
+  int _arrsize, _curpos, _pflag;
+  int _larrsize, _lcurpos, _lflag;
+  unsigned long _curtime;
+};
 
 #endif

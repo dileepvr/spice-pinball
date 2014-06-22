@@ -16,6 +16,7 @@ Pb_speaker::Pb_speaker(uint8_t pin)
   pinMode(pin, OUTPUT);
   _pin = pin;
   _pflag = 0;
+  _lflag = 0;
 }
 
 // Halt currently playing melody
@@ -23,12 +24,24 @@ void Pb_speaker::stop()
 {
   noTone(_pin);
   _pflag = 0;
+  if (_lflag == 2) {   // If looptrack existed, restore it
+    _lflag = 1;
+  }
+}
+
+
+// Halt currently playing melody
+void Pb_speaker::loopstop()
+{
+  noTone(_pin);
+  _lflag = 0;
 }
 
 // Start playing supplied melody with timing array
 // See also Pb_speaker.update()
 void Pb_speaker::start(int* melody, int* timing, int len)
 {
+  if (_lflag == 1) { _lflag = 2; }   // If looptrack existed, pause it
   _melsize = len;
   _melody = melody;
   _timing = timing;
@@ -42,19 +55,52 @@ void Pb_speaker::start(int* melody, int* timing, int len)
 }
 
 
+// Start playing supplied loop melody with timing array
+// See also Pb_speaker.update()
+void Pb_speaker::loopstart(int* lmelody, int* ltiming, int llen)
+{
+  _lmelsize = llen;
+  _lmelody = lmelody;
+  _ltiming = ltiming;
+  _curtime = millis();
+  noTone(_pin);
+  _lcurpos = 0;
+  if ((_lmelody[_curpos] != 0) && (_lmelsize > 0)) {
+    tone(_pin, _lmelody[_lcurpos], _ltiming[_lcurpos]);
+  }
+  _lflag = 1;
+}
+
+
 // This needs to be called inside main loop to advance
 // through the notes in the melody array
 void Pb_speaker::update()
 {
-  if (_pflag == 1) {
-    if (_curpos+1 == _melsize) {
-      _pflag = 0;
-    } else {
-      if ((millis() - _curtime) > _timing[_curpos]) {
-	_curpos++;
+  if (_lflag != 1) {         // If looptrack is paused or nonexistent
+    if (_pflag == 1) {
+      if (_curpos+1 == _melsize) {
+	_pflag = 0;
+	if (_lflag == 2) {_lflag = 1; }   // Restore looptrack if existed
+      } else {
+	if ((millis() - _curtime) > _timing[_curpos]) {
+	  _curpos++;
+	  _curtime = millis();
+	  if (_melody[_curpos] != 0) {
+	    tone(_pin, _melody[_curpos], _timing[_curpos]);
+	  }
+	}
+      }
+    }
+  } else {                 // Else continue with looptrack
+    if (_lflag == 1) {
+      if (_lcurpos+1 == _lmelsize) {
+	_lcurpos = 0;
+      }
+      if ((millis() - _curtime) > _ltiming[_lcurpos]) {
+	_lcurpos++;
 	_curtime = millis();
-	if (_melody[_curpos] != 0) {
-	  tone(_pin, _melody[_curpos], _timing[_curpos]);
+	if (_lmelody[_lcurpos] != 0) {
+	  tone(_pin, _lmelody[_lcurpos], _ltiming[_lcurpos]);
 	}
       }
     }
@@ -161,4 +207,109 @@ unsigned long Pb_stopwatch::time()
 {
   if (_flag) { return (millis() - _stime); }
   else       { return _time; }
+}
+
+
+// Test for passing function pointers as arguments
+void testfunc (void (*f)(), int val) {
+
+  (*f)();
+
+}
+
+
+// Supply timed event function pointer as argument
+// Function must return void and accept int arguement
+Pb_timedevent::Pb_timedevent(void (*func)(int ) )
+{
+  _f = func;
+  _pflag = 0;
+  _lflag = 0;
+}
+
+
+// Halt timed event function execution
+void Pb_timedevent::stop()
+{
+  _pflag = 0;
+  if (_lflag == 2) {   // If looped event existed, restore it
+    _lflag = 1;
+  }
+}
+
+// Halt currently looping event sequence
+void Pb_timedevent::loopstop()
+{
+  _lflag = 0;
+}
+
+// Start executing timed event function with integer
+// argument and timing from supplied arrays
+// See also Pb_timedevent.update()
+void Pb_timedevent::start(int* iarray, int* timing, int len)
+{
+  if (_lflag == 1) { _lflag = 2; }   // If looped event existed, pause it
+  _arrsize = len;
+  _iarray = iarray;
+  _timing = timing;
+  _curtime = millis();
+  _curpos = 0;
+
+  if ((_arrsize > 0) && (_timing[_curpos] > -1)) {
+    (*_f)(_iarray[_curpos]);
+  }
+  _pflag = 1;
+}
+
+
+// Start running supplied loop sequence with timing array
+// See also Pb_speaker.update()
+void Pb_timedevent::loopstart(int* liarray, int* ltiming, int llen)
+{
+  _larrsize = llen;
+  _liarray = liarray;
+  _ltiming = ltiming;
+  _curtime = millis();
+  _lcurpos = 0;
+
+  if ((_larrsize > 0) && (_ltiming[_lcurpos] > -1)) {
+    (*_f)(_liarray[_lcurpos]);
+  }
+  _lflag = 1;
+}
+
+
+// This needs to be called inside main loop to advance
+// through the timed sequence
+void Pb_timedevent::update()
+{
+  if (_lflag != 1) {   // If looped event is paused or nonexistent
+    if (_pflag == 1) {
+      if (_curpos+1 == _arrsize) {
+	_pflag = 0;
+	if (_lflag == 2) {_lflag = 1; }   // Restore looped event if existed
+      } else {
+	if ((millis() - _curtime) > _timing[_curpos]) {
+	  _curpos++;
+	  _curtime = millis();
+	  if (_timing[_curpos] > -1) {
+	    (*_f)(_iarray[_curpos]);
+	  }
+	}
+      }
+    }
+  } else {             // Else continue with looped sequence
+    if (_lflag == 1) {
+      if ((millis() - _curtime) > _ltiming[_lcurpos]) {
+	_lcurpos++;
+	if (_lcurpos == _larrsize) {
+	  _lcurpos = 0;
+	}
+	_curtime = millis();
+	if (_ltiming[_lcurpos] > -1) {
+	    (*_f)(_liarray[_lcurpos]);
+	}
+      }
+    }
+  }
 }

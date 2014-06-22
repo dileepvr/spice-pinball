@@ -90,3 +90,26 @@ Added scoreboard pcb draft.
 
 Finalized scoreboard pcb draft (and added speaker). Submitted
 gerber files stored in spice-pcb/scoreboard/order1.tar.gz
+
+
+********************************************************
+06-21-2014 - Entry by Dileep Reddy
+********************************************************
+
+
+The project is now released under the MIT license.
+
+Added new class:
+
+Pb_timedevent - Can execute any 'void(* function)( int)' in a
+specified timed sequence, much like Pb_speaker.
+Added example (Pbtimedevent).
+
+Also modified Pb_speaker and Pb_timedevent to handle background
+loops. This can play a looping sequence (function or melody), and
+automatically pause it when new finite duration event/melody needs to
+be executed, and continue looping afterwards.
+
+See examples folder (Pbspeakerloop and Pbtimedeventloop) for more.
+
+Added a mariotracks.h file containing a melody for usage in examples.
