@@ -51,6 +51,33 @@ class Pb_outputs
   volatile uint8_t *_dport, *_cport, *_lport;
 };
 
+// This class runs a display board
+class Pb_display : public Pb_outputs
+{
+ public:
+    Pb_display(uint8_t dataPin, uint8_t clkPin, uint8_t latchPin);
+    void print_number(int num);
+};
+
+
+// This class controls a motor controller board.
+class Pb_motor
+{
+ public:
+  Pb_motor(uint8_t pin1, uint8_t pin2);
+  void test_loop(); 
+  void set_speed(int mspeed);
+  void forward(int mspeed);
+  void forward();
+  void back(int mspeed);
+  void back();
+  void coast();
+  void stop();
+ private:
+  int time = 1000; 
+  int mspeed1 = 64; 
+  uint_8 motor[2];  
+};
 
 // This class is for debouncing digital inputs shorting to ground.
 // Push buttons, for example. Use for toggles only.
@@ -65,7 +92,6 @@ class Pb_switch
   unsigned long _ctime;
   boolean _flag;
 };
-
 
 // Simple millisecond stopwatch.
 class Pb_stopwatch

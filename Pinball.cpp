@@ -155,6 +155,37 @@ void Pb_outputs::update(byte* bitarray)
 
 }
 
+// Set up a display using 3 pins.
+Pb_display::Pb_display(uint8_t dataPin, uint8_t clkPin, uint8_t latchPin) : Pb_outputs(dataPin, clkPin, latchPin, 2)
+{
+
+}
+
+// Definitions for the display function below.
+// These are placeholders (needs fixing!)
+const uint8 DISPLAY_NUMBER[] = {0b00000001, // 0
+				0b00000010, // 1
+				0b00000100, // 2
+				0b00001000, // 3
+				0b00010000, // 4
+				0b00100000, // 5
+				0b01000000, // 6
+				0b10000000, // 7
+				0b00000011, // 8
+				0b00001100, // 9
+				0b11111111}; // Blank
+
+// Prints an integer between 00-100 on the display.
+Pb_display::print_number(int num)
+{
+  int digit1 = num % 10;
+  int digit2 = (num % 100) / 10;
+  byte display_array[2];
+  display_array[0]=DISPLAY_NUMBER[digit1];
+  display_array[1]=DISPLAY_NUMBER[digit2];
+  update(display_array);
+}
+
 
 // Debounce time in milliseconds as argument
 Pb_switch::Pb_switch(uint8_t dtime)
@@ -163,7 +194,6 @@ Pb_switch::Pb_switch(uint8_t dtime)
   _flag = false;
   _ctime = millis();
 }
-
 
 // To check if it was pushed down
 boolean Pb_switch::pushed(boolean val)
@@ -180,6 +210,83 @@ boolean Pb_switch::pushed(boolean val)
   }
 }
 
+// Motor controller board
+// Pins must be PWM for speed control
+Pb_motor::Pb_motor(uint8_t pin1, uint8_t pin2)
+{ 
+  time = 1000; //milliseconds delay for testing onyl
+  mspeed1 = 64; // 0 - 255, speed
+  motor[0] = pin1;
+  motor[1] = pin2;
+  pinMode(motor[0], OUTPUT);
+  pinMode(motor[1], OUTPUT);
+  digitalWrite(motor[0], LOW);
+  digitalWrite(motor[1], LOW);
+}
+
+// for testing purposes
+void Pb_motor::test_loop()
+{
+  Serial.println("Forward");
+  move_front(mspeed1);
+  delay(time);
+  stop_motor();
+
+  Serial.println("Backward"); 
+  move_back(mspeed1);
+  delay(time);
+  stop_motor(); 
+}
+
+// sets speed for test_loop and argument free move functions.
+// Speed will only update on next function call
+void Pb_motor::set_speed(int mspeed)
+{   
+  mspeed1 = mspeed;
+}
+
+void Pb_motor::forward(int mspeed)
+{   
+   //digitalWrite(motor[0],HIGH);
+   analogWrite(motor[0],mspeed); 
+   digitalWrite(motor[1],LOW);
+
+}
+
+void Pb_motor::forward()
+{   
+   //digitalWrite(motor[0],HIGH);
+   analogWrite(motor[0],mspeed1); 
+   digitalWrite(motor[1],LOW);
+
+}
+
+void Pb_motor::back(int mspeed)
+{   
+   digitalWrite(motor[0],LOW); 
+   //digitalWrite(motor[1], HIGH); 
+   analogWrite(motor[1],mspeed);
+}
+
+void Pb_motor::back()
+{   
+   digitalWrite(motor[0],LOW); 
+   //digitalWrite(motor[1], HIGH); 
+   analogWrite(motor[1],mspeed1);
+}
+
+void Pb_motor::stop()
+{
+  digitalWrite(motor[0],LOW);
+  digitalWrite(motor[1],LOW);
+}
+
+//untested!
+void Pb_motor::coast()
+{
+  digitalWrite(motor[0],HIGH);
+  digitalWrite(motor[1],HIGH);
+}
 
 // Simple millisecond stopwatch
 Pb_stopwatch::Pb_stopwatch()
