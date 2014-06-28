@@ -57,6 +57,8 @@ class Pb_display : public Pb_outputs
  public:
     Pb_display(uint8_t dataPin, uint8_t clkPin, uint8_t latchPin);
     void print_number(int num);
+ private:
+    byte display_array[2];
 };
 
 
@@ -74,9 +76,9 @@ class Pb_motor
   void coast();
   void stop();
  private:
-  int time = 1000; 
-  int mspeed1 = 64; 
-  uint_8 motor[2];  
+  int time; 
+  int mspeed1; 
+  uint8_t motor[2];  
 };
 
 // This class is for debouncing digital inputs shorting to ground.

@@ -158,29 +158,43 @@ void Pb_outputs::update(byte* bitarray)
 // Set up a display using 3 pins.
 Pb_display::Pb_display(uint8_t dataPin, uint8_t clkPin, uint8_t latchPin) : Pb_outputs(dataPin, clkPin, latchPin, 2)
 {
-
+  display_array[0] = 0b11111111;
+  display_array[1] = 0b11111111;
+  update(display_array);
 }
 
 // Definitions for the display function below.
-// These are placeholders (needs fixing!)
-const uint8 DISPLAY_NUMBER[] = {0b00000001, // 0
-				0b00000010, // 1
-				0b00000100, // 2
-				0b00001000, // 3
-				0b00010000, // 4
-				0b00100000, // 5
-				0b01000000, // 6
-				0b10000000, // 7
-				0b00000011, // 8
-				0b00001100, // 9
-				0b11111111}; // Blank
+// 
+// These designations do NOT match the printed circuit board!
+//  LOW = LED ON
+// HIGH = LED OFF
+//   ---6---
+//  |       |     
+//  1       7     
+//  |       |     
+//   ---0---
+//  |       |     
+//  2       4     
+//  |       |     
+//   ---3---
+//          * 5                     76543210
+const byte DISPLAY_NUMBER[] =    {0b00100001, // 0
+				  0b01101111, // 1
+				  0b00110010, // 2
+				  0b00100110, // 3
+				  0b01101100, // 4
+				  0b10100100, // 5
+				  0b10100000, // 6
+				  0b00101111, // 7
+				  0b00100000, // 8
+				  0b00100100, // 9
+				  0b11111111}; // Blank
 
 // Prints an integer between 00-100 on the display.
-Pb_display::print_number(int num)
+void Pb_display::print_number(int num)
 {
   int digit1 = num % 10;
   int digit2 = (num % 100) / 10;
-  byte display_array[2];
   display_array[0]=DISPLAY_NUMBER[digit1];
   display_array[1]=DISPLAY_NUMBER[digit2];
   update(display_array);
@@ -228,14 +242,14 @@ Pb_motor::Pb_motor(uint8_t pin1, uint8_t pin2)
 void Pb_motor::test_loop()
 {
   Serial.println("Forward");
-  move_front(mspeed1);
+  forward(mspeed1);
   delay(time);
-  stop_motor();
+  stop();
 
   Serial.println("Backward"); 
-  move_back(mspeed1);
+  back(mspeed1);
   delay(time);
-  stop_motor(); 
+  stop(); 
 }
 
 // sets speed for test_loop and argument free move functions.
