@@ -1,6 +1,7 @@
 #include <Pinball.h>
 
 // These should be analog pins to use the variable speed control.
+// Avoid pins 3 and 11 if using Tone() or other Pinball audio classes
 int controlpin1 = 5; 
 int controlpin2 = 6;
 

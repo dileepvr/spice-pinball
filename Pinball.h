@@ -63,6 +63,7 @@ class Pb_display : public Pb_outputs
 
 
 // This class controls a motor controller board.
+// Avoid pwm pins 3 and 11, as there is timer conflict with Tone()
 class Pb_motor
 {
  public:
@@ -134,5 +135,21 @@ class Pb_timedevent
   int _larrsize, _lcurpos, _lflag;
   unsigned long _curtime;
 };
+
+
+// This is used to interface with 4051 multiplexers
+// For digital only for now
+class Pb_muxin
+{
+ public:
+  Pb_muxin(uint8_t pinA, uint8_t pinB, uint8_t pinC, uint8_t COMpin);
+  boolean probe(int snum);
+  byte read();
+ private:
+  uint8_t _pinA, _pinB, _pinC, _COMpin;
+  volatile uint8_t *_Aport, *_Bport, *_Cport;
+};
+
+
 
 #endif

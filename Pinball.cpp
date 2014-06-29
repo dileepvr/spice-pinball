@@ -226,6 +226,7 @@ boolean Pb_switch::pushed(boolean val)
 
 // Motor controller board
 // Pins must be PWM for speed control
+// Avoid pins 3 and 11 if using the audio classes and/or Tone()
 Pb_motor::Pb_motor(uint8_t pin1, uint8_t pin2)
 { 
   time = 1000; //milliseconds delay for testing onyl
@@ -433,4 +434,63 @@ void Pb_timedevent::update()
       }
     }
   }
+}
+
+
+// This is used to interface with 4051 multiplexers (8-channel)
+// For digital only for now
+Pb_muxin::Pb_muxin(uint8_t pinA, uint8_t pinB, uint8_t pinC, uint8_t COMpin)
+{
+  pinMode(pinA, OUTPUT); pinMode(pinB, OUTPUT); pinMode(pinC, OUTPUT);
+  pinMode(COMpin, INPUT); digitalWrite(COMpin, HIGH);
+
+  _COMpin = COMpin;
+
+  // This is where it gets specific to ATMEGA168/328P
+  if (pinA < 8) {_pinA = pinA; _Aport = &PORTD; }
+  else {_pinA = pinA - 8; _Aport = &PORTB; }
+  if (pinB < 8) {_pinB = pinB; _Bport = &PORTD; }
+  else {_pinB = pinB - 8; _Bport = &PORTB; }
+  if (pinC < 8) {_pinC = pinC; _Cport = &PORTD; }
+  else {_pinC = pinC - 8; _Cport = &PORTB; }
+
+}
+
+
+// Read channel number snum (starts from zero)
+boolean Pb_muxin::probe(int snum)
+{
+  if ((snum & 0x01))
+    {   *_Aport |= (1 << _pinA);  } 
+  else
+    {   *_Aport &= ~(1 << _pinA);  } 
+  if ((snum & 0x02))
+    {   *_Bport |= (1 << _pinB);  } 
+  else
+    {   *_Bport &= ~(1 << _pinB);  } 
+  if ((snum & 0x04))
+    {   *_Cport |= (1 << _pinC);  } 
+  else
+    {   *_Cport &= ~(1 << _pinC);  } 
+
+  return digitalRead(_COMpin);
+  
+}
+
+// Read all 8 digital channels at once and return binary byte
+byte Pb_muxin::read()
+{
+  uint8_t icnt;
+
+  byte _dvals = 0x00;
+
+  for (icnt = 0; icnt < 8; icnt++) {
+    
+    if( probe(icnt) ) {
+      _dvals |= (1 << icnt);
+    }
+
+  }
+  return _dvals;
+  
 }

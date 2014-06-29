@@ -113,3 +113,23 @@ be executed, and continue looping afterwards.
 See examples folder (Pbspeakerloop and Pbtimedeventloop) for more.
 
 Added a mariotracks.h file containing a melody for usage in examples.
+
+********************************************************
+06-28-2014 - Entry by Dileep Reddy
+********************************************************
+
+
+Wes has added the following classes:
+
+Pb_display - To shift out 2-digit numbers to 7-segment display board
+that uses 74HC595 shift registers.
+Pb_motor - To control motor using L293D driver chips and pwm pins.
+
+Note that Pb_motor can conflict with the audio classes as Tone() uses
+Timer2. So it is best to avoid pins 3 and 11 for motor control.
+
+I added the following class:
+
+Pb_muxin - Probes (digitally) channels of 4051 8-channel multiplexer.
+
+Corresponding examples also created.
