@@ -26,7 +26,7 @@ void setup() {
   pinMode(buttonpin, INPUT);
   digitalWrite(buttonpin, HIGH);
   
-  spkr.loopstart(marionotes2, mariotimes2, 62);
+  spkr.loopstart(marionotes2, mariotimes2, 61);
   // spkr.loopstop() is also defined
 }
 

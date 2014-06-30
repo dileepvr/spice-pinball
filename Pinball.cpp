@@ -78,14 +78,14 @@ void Pb_speaker::update()
 {
   if (_lflag != 1) {         // If looptrack is paused or nonexistent
     if (_pflag == 1) {
-      if (_curpos+1 == _melsize) {
+      if (_curpos == _melsize) {
 	_pflag = 0;
 	if (_lflag == 2) {_lflag = 1; }   // Restore looptrack if existed
       } else {
 	if ((millis() - _curtime) > _timing[_curpos]) {
 	  _curpos++;
 	  _curtime = millis();
-	  if (_melody[_curpos] != 0) {
+	  if ((_curpos < _melsize) && (_melody[_curpos] != 0)) {
 	    tone(_pin, _melody[_curpos], _timing[_curpos]);
 	  }
 	}
@@ -206,6 +206,7 @@ Pb_switch::Pb_switch(uint8_t dtime)
 {
   _dt = dtime;
   _flag = false;
+  _oldval = true;
   _ctime = millis();
 }
 
@@ -213,15 +214,15 @@ Pb_switch::Pb_switch(uint8_t dtime)
 boolean Pb_switch::pushed(boolean val)
 {
   if (millis() - _ctime > _dt) {
+    if (!val && _flag) { _flag = false; return true; }
     _flag = false;
   }
-  if (!val && !_flag) {
+  if (!val && !_flag && _oldval) {
     _flag = true;
     _ctime = millis();
-    return true;
-  } else {
-    return false;
   }
+  _oldval = val;
+  return false;
 }
 
 // Motor controller board
@@ -407,14 +408,14 @@ void Pb_timedevent::update()
 {
   if (_lflag != 1) {   // If looped event is paused or nonexistent
     if (_pflag == 1) {
-      if (_curpos+1 == _arrsize) {
+      if (_curpos == _arrsize) {
 	_pflag = 0;
 	if (_lflag == 2) {_lflag = 1; }   // Restore looped event if existed
       } else {
 	if ((millis() - _curtime) > _timing[_curpos]) {
 	  _curpos++;
 	  _curtime = millis();
-	  if (_timing[_curpos] > -1) {
+	  if ((_curpos < _arrsize) && (_timing[_curpos] > -1)) {
 	    (*_f)(_iarray[_curpos]);
 	  }
 	}

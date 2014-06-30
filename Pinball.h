@@ -93,7 +93,7 @@ class Pb_switch
  private:
   uint8_t _dt;
   unsigned long _ctime;
-  boolean _flag;
+  boolean _flag, _oldval;
 };
 
 // Simple millisecond stopwatch.

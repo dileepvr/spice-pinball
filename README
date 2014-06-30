@@ -133,3 +133,15 @@ I added the following class:
 Pb_muxin - Probes (digitally) channels of 4051 8-channel multiplexer.
 
 Corresponding examples also created.
+
+********************************************************
+06-29-2014 - Entry by Dileep Reddy
+********************************************************
+
+
+Fixed last-note/event-swallowed-by-loop bug in update routines of both
+Pb_speaker and Pb_timedevent.
+
+Fixed bug in Pb_switch. Now, it debounces falling edge only.
+
+Corrected Pb_speakerloop example (number of notes is 61, not 62).
