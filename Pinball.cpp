@@ -168,26 +168,26 @@ Pb_display::Pb_display(uint8_t dataPin, uint8_t clkPin, uint8_t latchPin) : Pb_o
 // These designations do NOT match the printed circuit board!
 //  LOW = LED ON
 // HIGH = LED OFF
-//   ---6---
-//  |       |     
-//  1       7     
-//  |       |     
 //   ---0---
 //  |       |     
-//  2       4     
+//  5       1     
 //  |       |     
-//   ---3---
-//          * 5                     76543210
-const byte DISPLAY_NUMBER[] =    {0b00100001, // 0
-				  0b01101111, // 1
-				  0b00110010, // 2
-				  0b00100110, // 3
-				  0b01101100, // 4
-				  0b10100100, // 5
-				  0b10100000, // 6
-				  0b00101111, // 7
-				  0b00100000, // 8
-				  0b00100100, // 9
+//   ---6---
+//  |       |     
+//  7       3     
+//  |       |     
+//   ---2---
+//          * 4                     76543210
+const byte DISPLAY_NUMBER[] =    {0b01010000, // 0
+				  0b11110101, // 1
+				  0b00111000, // 2
+				  0b10110000, // 3
+				  0b10010101, // 4
+				  0b10010010, // 5
+				  0b00010010, // 6
+				  0b11110100, // 7
+				  0b00010000, // 8
+				  0b10010000, // 9
 				  0b11111111}; // Blank
 
 // Prints an integer between 00-100 on the display.
