@@ -145,3 +145,19 @@ Pb_speaker and Pb_timedevent.
 Fixed bug in Pb_switch. Now, it debounces falling edge only.
 
 Corrected Pb_speakerloop example (number of notes is 61, not 62).
+
+
+********************************************************
+06-11-2015 - Entry by Dileep Reddy
+********************************************************
+
+
+Added support for new scoreboard with four 7-segment displays based on
+the TM1637 LED driver chip. Used code from TM1637Display library by
+avishorp@gmail.com (released under GNU lesser public license). I
+believe that the lesser license allows use of his/her code in our
+library as long as we make original library available with original
+license, which is done as a subfolder.
+
+Check out Pbscoreboard.ino example file for list of features.
+Will add text support soon.

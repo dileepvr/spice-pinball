@@ -495,3 +495,324 @@ byte Pb_muxin::read()
   return _dvals;
   
 }
+
+
+// The following is from TM1637Display library by avishorp@gmail.com
+// with modifications
+
+extern "C" {
+  #include <stdlib.h>
+  #include <string.h>
+  #include <inttypes.h>
+}
+
+
+#define TM1637_I2C_COMM1    0x40
+#define TM1637_I2C_COMM2    0xC0
+#define TM1637_I2C_COMM3    0x80
+
+//
+//      A
+//     ---
+//  F |   | B
+//     -G-
+//  E |   | C
+//     ---
+//      D
+const uint8_t digitToSegment[] = {
+ // XGFEDCBA
+  0b00111111,    // 0
+  0b00000110,    // 1
+  0b01011011,    // 2
+  0b01001111,    // 3
+  0b01100110,    // 4
+  0b01101101,    // 5
+  0b01111101,    // 6
+  0b00000111,    // 7
+  0b01111111,    // 8
+  0b01101111,    // 9
+  0b01110111,    // A
+  0b01111100,    // B
+  0b00111001,    // C
+  0b01000111,    // D
+  0b01111001,    // E
+  0b01110001,    // F
+  0b00000000     // N
+  };
+
+const uint8_t digitpToSegment[] = {
+ // XGFEDCBA
+  0b10111111,    // 0
+  0b10000110,    // 1
+  0b11011011,    // 2
+  0b11001111,    // 3
+  0b11100110,    // 4
+  0b11101101,    // 5
+  0b11111101,    // 6
+  0b10000111,    // 7
+  0b11111111,    // 8
+  0b11101111,    // 9
+  0b11110111,    // A
+  0b11111100,    // B
+  0b10111001,    // C
+  0b11000111,    // D
+  0b11111001,    // E
+  0b11110001,    // F
+  0b10000000     // N
+  };
+
+	
+Pb_scoreboard::Pb_scoreboard(uint8_t pinClk, uint8_t pinDIO)
+{
+	// Copy the pin numbers
+	m_pinClk = pinClk;
+	m_pinDIO = pinDIO;
+	m_partition = 0;
+	m_brightness = 0xff;
+	
+	// Set the pin direction and default value.
+	// Both pins are set as inputs, allowing the pull-up resistors to pull them up
+    pinMode(m_pinClk, INPUT);
+    pinMode(m_pinDIO,INPUT);
+	digitalWrite(m_pinClk, LOW);
+	digitalWrite(m_pinDIO, LOW);
+}
+
+void Pb_scoreboard::setBrightness(uint8_t brightness)
+{
+	m_brightness = brightness;
+}
+
+void Pb_scoreboard::setSegments(const uint8_t segments[], uint8_t length, uint8_t pos)
+{
+    // Write COMM1
+	start();
+	writeByte(TM1637_I2C_COMM1);
+	stop();
+	
+	// Write COMM2 + first digit address
+	start();
+	writeByte(TM1637_I2C_COMM2 + (pos & 0x03));
+	
+	// Write the data bytes
+	for (uint8_t k=0; k < length; k++) 
+	  writeByte(segments[k]);
+	  
+	stop();
+
+	// Write COMM3 + brightness
+	start();
+	writeByte(TM1637_I2C_COMM3 + (m_brightness & 0x0f));
+	stop();
+}
+ 
+void Pb_scoreboard::showdisplay(int num, bool leading_zero, uint8_t length, uint8_t pos)
+{
+	uint8_t digits[4];
+	const static int divisors[] = { 1, 10, 100, 1000 };
+	bool leading = true;
+	
+	for(int8_t k = 0; k < 4; k++) {
+	    int divisor = divisors[4 - 1 - k];
+		int d = num / divisor;
+		
+		if (d == 0) {
+		  if (leading_zero || !leading || (k == 3))
+		    digits[k] = encodeDigit(d);
+	      else
+		    digits[k] = 0;
+		}
+		else {
+			digits[k] = encodeDigit(d);
+			num -= d * divisor;
+			leading = false;
+		}
+	}
+	
+	setSegments(digits + (4 - length), length, pos);
+}
+
+void Pb_scoreboard::bitDelay()
+{
+	delayMicroseconds(50);
+}
+   
+void Pb_scoreboard::start()
+{
+  pinMode(m_pinDIO, OUTPUT);
+  bitDelay();
+}
+   
+void Pb_scoreboard::stop()
+{
+	pinMode(m_pinDIO, OUTPUT);
+	bitDelay();
+	pinMode(m_pinClk, INPUT);
+	bitDelay();
+	pinMode(m_pinDIO, INPUT);
+	bitDelay();
+}
+  
+bool Pb_scoreboard::writeByte(uint8_t b)
+{
+  uint8_t data = b;
+
+  // 8 Data Bits
+  for(uint8_t i = 0; i < 8; i++) {
+    // CLK low
+    pinMode(m_pinClk, OUTPUT);
+    bitDelay();
+    
+	// Set data bit
+    if (data & 0x01)
+      pinMode(m_pinDIO, INPUT);
+    else
+      pinMode(m_pinDIO, OUTPUT);
+    
+    bitDelay();
+	
+	// CLK high
+    pinMode(m_pinClk, INPUT);
+    bitDelay();
+    data = data >> 1;
+  }
+  
+  // Wait for acknowledge
+  // CLK to zero
+  pinMode(m_pinClk, OUTPUT);
+  pinMode(m_pinDIO, INPUT);
+  bitDelay();
+  
+  // CLK to high
+  pinMode(m_pinClk, INPUT);
+  bitDelay();
+  uint8_t ack = digitalRead(m_pinDIO);
+  if (ack == 0)
+    pinMode(m_pinDIO, OUTPUT);
+	
+	
+  bitDelay();
+  pinMode(m_pinClk, OUTPUT);
+  bitDelay();
+  
+  return ack;
+}
+
+
+void Pb_scoreboard::setpartition(uint8_t par)
+{
+  if (par > 4) { m_partition = 0; }
+  else { m_partition = par; }
+}
+
+void Pb_scoreboard::predisplay(int num, bool leading_zero)
+{
+  uint8_t digits[4], length, pos;
+  const static int divisors[] = { 1, 10, 100, 1000 };
+  bool leading = true;
+
+  pos = 0;
+  if( m_partition == 0 ) { length = 4; }
+  else { length = m_partition; }
+	
+  for(int8_t k = 0; k < 4; k++) {
+    int divisor = divisors[4 - 1 - k];
+    int d = num / divisor;
+	  
+    if (d == 0) {
+      if (leading_zero || !leading || (k == 3))
+	if (m_partition == 0 || (k != 3) ) {
+	  digits[k] = encodeDigit(d);
+	} else {
+	  digits[k] = encodeDigitp(d);	  
+	}
+      else
+	digits[k] = 0;
+    }
+    else {
+      if (m_partition == 0 || (k != 3) ) {
+	digits[k] = encodeDigit(d);
+      } else {
+	digits[k] = encodeDigitp(d);	  
+      }      
+      num -= d * divisor;
+      leading = false;
+    }
+  }
+	
+  setSegments(digits + (4 - length), length, pos);
+}
+
+
+void Pb_scoreboard::postdisplay(int num, bool leading_zero)
+{
+  uint8_t digits[4], length, pos;
+  const static int divisors[] = { 1, 10, 100, 1000 };
+  bool leading = true;
+
+  if( m_partition == 0 ) { length = 4; pos = 0; }
+  else { length = 4 - m_partition; pos = m_partition; }
+
+  if( pos < 4) {
+    for(int8_t k = 0; k < 4; k++) {
+      int divisor = divisors[4 - 1 - k];
+      int d = num / divisor;
+	  
+      if (d == 0) {
+	if (leading_zero || !leading || (k == 3))
+	  digits[k] = encodeDigit(d);
+	else
+	  digits[k] = 0;
+      }
+      else {
+	digits[k] = encodeDigit(d);
+	num -= d * divisor;
+	leading = false;
+      }
+    }
+	
+    setSegments(digits + (4 - length), length, pos);
+  }
+}
+
+void Pb_scoreboard::blankdisplay() {
+  uint8_t data[] = { 0x00, 0x00, 0x00, 0x00 };
+  setSegments(data);
+}
+
+void Pb_scoreboard::blankpredisplay() {
+
+  uint8_t length, pos;
+  uint8_t digits[] = {0x00, 0x00, 0x00, 0x80};
+
+  pos = 0;
+  if( m_partition == 0 ) { length = 4; }
+  else { length = m_partition; }
+	
+  setSegments(digits + (4 - length), length, pos);  
+  
+}
+
+void Pb_scoreboard::blankpostdisplay() {
+
+  uint8_t length, pos;
+  uint8_t digits[] = {0x00, 0x00, 0x00, 0x00};
+
+  if( m_partition == 0 ) { length = 4; pos = 0; }
+  else { length = 4 - m_partition; pos = m_partition; }
+
+  setSegments(digits + (4 - length), length, pos);    
+}
+  
+uint8_t Pb_scoreboard::encodeDigit(uint8_t digit)
+{
+	return digitToSegment[digit & 0x0f];
+}
+
+uint8_t Pb_scoreboard::encodeDigitp(uint8_t digit)
+{
+	return digitpToSegment[digit & 0x0f];
+}
+
+   
+
