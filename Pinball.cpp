@@ -17,6 +17,7 @@ Pb_speaker::Pb_speaker(uint8_t pin)
   _pin = pin;
   _pflag = 0;
   _lflag = 0;
+  _bflag = 0;
 }
 
 // Halt currently playing melody
@@ -24,7 +25,9 @@ void Pb_speaker::stop()
 {
   noTone(_pin);
   _pflag = 0;
-  if (_lflag == 2) {   // If looptrack existed, restore it
+  if (_bflag == 2) {          // If beattrack existed, restore it
+    _bflag = 1;
+  } else if (_lflag == 2) {   // If looptrack existed, restore it
     _lflag = 1;
   }
 }
@@ -35,6 +38,14 @@ void Pb_speaker::loopstop()
 {
   noTone(_pin);
   _lflag = 0;
+  _bflag = 0;
+}
+
+// Halt currently playing melody
+void Pb_speaker::beatstop()
+{
+  noTone(_pin);
+  _bflag = 0;
 }
 
 // Start playing supplied melody with timing array
@@ -42,6 +53,7 @@ void Pb_speaker::loopstop()
 void Pb_speaker::start(int* melody, int* timing, int len)
 {
   if (_lflag == 1) { _lflag = 2; }   // If looptrack existed, pause it
+  if (_bflag == 1) { _bflag = 2; }   // If beattrack existed, pause it
   _melsize = len;
   _melody = melody;
   _timing = timing;
@@ -72,15 +84,34 @@ void Pb_speaker::loopstart(int* lmelody, int* ltiming, int llen)
 }
 
 
+// Start playing supplied melody with timing beat
+// See also Pb_speaker.update()
+void Pb_speaker::startbeat(int* melody, int beat_t, int len)
+{
+  if (_lflag == 1) { _lflag = 2; }   // If looptrack existed, pause it
+  _bmelsize = len;
+  _bmelody = melody;
+  _beattime = beat_t;
+  _curtime = millis();
+  noTone(_pin);
+  _bcurpos = 0;
+  if ((_bmelody[_bcurpos] != 0) && (_bmelsize > 0)) {
+    tone(_pin, _bmelody[_bcurpos], _beattime);
+  }
+  _bflag = 1;
+}
+
+
 // This needs to be called inside main loop to advance
 // through the notes in the melody array
 void Pb_speaker::update()
 {
-  if (_lflag != 1) {         // If looptrack is paused or nonexistent
+  if ((_lflag != 1)&&(_bflag != 1)) { // If looptrack and beattrack are paused or nonexistent
     if (_pflag == 1) {
       if (_curpos == _melsize) {
 	_pflag = 0;
-	if (_lflag == 2) {_lflag = 1; }   // Restore looptrack if existed
+	if (_bflag == 2) {_bflag = 1; } // Restore beattrack if existed
+	else if (_lflag == 2) {_lflag = 1; } // Restore looptrack if existed
       } else {
 	if ((millis() - _curtime) > _timing[_curpos]) {
 	  _curpos++;
@@ -91,6 +122,19 @@ void Pb_speaker::update()
 	}
       }
     }
+  } else if (_bflag == 1) {
+    if (_bcurpos == _bmelsize) {
+      _bflag = 0;
+      if (_lflag == 2) {_lflag = 1; } // Restore looptrack if existed
+    } else {
+      if ((millis() - _curtime) > _beattime) {
+	_bcurpos++;
+	_curtime = millis();
+	if ((_bcurpos < _bmelsize) && (_melody[_bcurpos] != 0)) {
+	  tone(_pin, _bmelody[_bcurpos], _beattime);
+	}
+      }
+    }    
   } else {                 // Else continue with looptrack
     if (_lflag == 1) {
       if (_lcurpos+1 == _lmelsize) {
@@ -537,7 +581,7 @@ const uint8_t digitToSegment[] = {
   0b01000111,    // D
   0b01111001,    // E
   0b01110001,    // F
-  0b00000000     // N
+  0b00000000     // NULL
   };
 
 const uint8_t digitpToSegment[] = {
@@ -558,10 +602,11 @@ const uint8_t digitpToSegment[] = {
   0b11000111,    // D
   0b11111001,    // E
   0b11110001,    // F
-  0b10000000     // N
+  0b10000000     // NULL
   };
 
-	
+
+
 Pb_scoreboard::Pb_scoreboard(uint8_t pinClk, uint8_t pinDIO)
 {
 	// Copy the pin numbers
@@ -813,6 +858,4 @@ uint8_t Pb_scoreboard::encodeDigitp(uint8_t digit)
 {
 	return digitpToSegment[digit & 0x0f];
 }
-
-   
 

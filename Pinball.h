@@ -24,17 +24,22 @@ class Pb_speaker
   Pb_speaker(uint8_t pin);
   void stop();
   void loopstop();
+  void beatstop();
   void start(int* melody, int* timing, int len);
   void loopstart(int* lmelody, int* ltiming, int llen);
+  void startbeat(int* melody, int beat_t, int len);
   void update();
  private:
   uint8_t _pin;
   int* _melody;
   int* _lmelody;
+  int* _bmelody;
   int* _timing;
   int* _ltiming;
   int _melsize,  _curpos, _pflag;
   int _lmelsize,  _lcurpos, _lflag;
+  int _bmelsize, _bcurpos;
+  int _beattime,  _bflag;
   unsigned long _curtime;
 };
 
@@ -241,7 +246,8 @@ public:
 
   void blankpredisplay(); // Spice modification
 
-  void blankpostdisplay(); // Spice modification  
+  void blankpostdisplay(); // Spice modification
+
   
 protected:
    void bitDelay();
@@ -259,5 +265,35 @@ private:
 	uint8_t m_partition;   // Spice modification
 };
 
+#define TM_DOT          0x80
+
+#define TM_MINUS        0x40
+#define TM_PLUS         0x44
+#define TM_BLANK        0x00
+#define TM_DEGREES      0x63
+#define TM_UNDERSCORE   0x08
+#define TM_EQUALS       0x48
+#define TM_CHAR_ERR     0x49
+
+uint8_t inline TM1637_map_char(const char ch)
+{
+    uint8_t rc = 0;
+
+    switch (ch)
+    {
+        case '-': rc = TM_MINUS; break;
+        case '+': rc = TM_PLUS; break;
+        case ' ': rc = TM_BLANK; break;
+        case '^': rc = TM_DEGREES; break;
+        case '_': rc = TM_UNDERSCORE; break;
+        case '=': rc = TM_EQUALS; break;
+        default:
+            break;
+    }
+
+    return rc;
+}
+
 
 #endif
+
