@@ -9,6 +9,7 @@
 // This is how you initialize a timedevent label
 // The argument can be any function (defined somewhere in the program)
 // that returns void and accepts an integer argument
+void printval(int);
 Pb_timedevent dothis(printval);
 
 int values[] = { 2, 3, 5, 7, 11};
