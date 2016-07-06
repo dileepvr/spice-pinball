@@ -859,3 +859,57 @@ uint8_t Pb_scoreboard::encodeDigitp(uint8_t digit)
 	return digitpToSegment[digit & 0x0f];
 }
 
+
+// This is meant to be used with the Peak detector board to read an analog value.
+// Meant to capture event size from Piezo-electric element.
+// Accepts activity threshold and two wait times as arguments.
+Pb_peakpiezo::Pb_peakpiezo(uint8_t APin, uint8_t rstPin, int thresh, int timeA, int timeB)
+{
+  pinMode(rstPin, OUTPUT); digitalWrite(rstPin, LOW);
+  _APin = APin; _rstPin = rstPin; _thresh = thresh; _timeA = timeA; _timeB = timeB;
+  _state = 0;
+  _Aval = 0;
+  _oldtA = millis(); _oldtB = _oldtA;
+  
+}
+
+void Pb_peakpiezo::update()
+{
+  switch(_state) {
+  case 0:
+    if(analogRead(_APin) > _thresh) {
+      _state = 1;
+      _oldtA = millis();
+    }
+    break;
+  case 1:
+    if(millis()-_oldtA >= _timeA) {
+      _Aval = analogRead(_APin);
+      _state = 2;
+      digitalWrite(_rstPin, HIGH);
+      _oldtB = millis();
+    }
+    break;
+  case 2:
+    if(millis()-_oldtB >= _timeB) {
+      digitalWrite(_rstPin, LOW);
+      _state = 0;
+    }
+    break;
+  }
+}
+
+void Pb_peakpiezo::reset()
+{
+  _Aval = 0;
+  _state = 2;
+  digitalWrite(_rstPin, HIGH);
+  _oldtB = millis();
+}
+
+int Pb_peakpiezo::read()
+{
+  _Atemp = _Aval;
+  _Aval = 0;
+  return _Atemp;
+}

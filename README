@@ -161,3 +161,15 @@ license, which is done as a subfolder.
 
 Check out Pbscoreboard.ino example file for list of features.
 Will add text support soon.
+
+********************************************************
+07-05-2015 - Entry by Dileep Reddy
+********************************************************
+
+
+Added support of peak detection circuit PCB to be used in conjunction
+with piezo element. Very selfexplanatory.
+
+Gerber and PCB design files will soon be added to repo.
+
+Check out Pbpeakpiezo.ino example file for simple usage.

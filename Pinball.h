@@ -295,5 +295,25 @@ uint8_t inline TM1637_map_char(const char ch)
 }
 
 
+// This is meant to be used with the Peak detector board to read an analog value.
+// Meant to capture event size from Piezo-electric element.
+// Accepts activity threshold and two wait times as arguments.
+class Pb_peakpiezo
+{
+ public:
+  Pb_peakpiezo(uint8_t APin, uint8_t rstPin, int thresh, int timeA, int timeB);
+  void update();
+  void reset();
+  int read();
+ private:
+  uint8_t _APin, _rstPin;
+  int _thresh, _timeA, _timeB;
+  int _Aval, _Atemp;
+  unsigned long _oldtA, _oldtB;
+  uint8_t _state;
+};
+
+
+
 #endif
 
