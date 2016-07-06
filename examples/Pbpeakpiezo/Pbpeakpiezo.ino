@@ -1,7 +1,7 @@
 #include <Pinball.h>
 
 // arguments: A_pin, reset_pin, threshold, peak capture time (ms), reset hold time (ms)
-Pb_peakpiezo mypiezo(A0, 4, 100, 100, 10);
+Pb_peakpiezo mypiezo(A0, 4, 80, 100, 150);
 
 int Aval;
 
