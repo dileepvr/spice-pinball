@@ -1,3 +1,8 @@
+/*
+  This project has been released under a Modified MIT License, the text
+  of which is presented in the accopanying file LICENSE.md.
+  Future versions of the MIT license may not automatically apply.
+*/
 #include <Pinball.h>
 
 int clkpin = 11;

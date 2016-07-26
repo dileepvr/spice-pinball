@@ -1,7 +1,11 @@
 /*
   Pinball.cpp - Library for Spice 2014 engineering camp.
   v1.0 was created by Dileep V. Reddy, May 24, 2014.
-  No release license yet at the time of this writing.
+
+  This project has been released under a Modified MIT License, the
+  text of which is presented in the accopanying file LICENSE.md.
+  Future versions of the MIT license may not automatically apply.
+
 */
 
 #include "Pinball.h"

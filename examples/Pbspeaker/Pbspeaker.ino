@@ -1,4 +1,9 @@
 /*
+  This project has been released under a Modified MIT License, the text
+  of which is presented in the accopanying file LICENSE.md.
+  Future versions of the MIT license may not automatically apply.
+*/
+/*
   Program to test the Pb_speaker class from Pinball.h
   Attach speaker to pin 8 and ground.
 */

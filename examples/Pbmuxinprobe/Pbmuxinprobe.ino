@@ -1,4 +1,9 @@
 /*
+  This project has been released under a Modified MIT License, the text
+  of which is presented in the accopanying file LICENSE.md.
+  Future versions of the MIT license may not automatically apply.
+*/
+/*
   Program to test the Pb_muxin class from Pinball.h
   Attach a buttons (that shorts to ground when pressed) to 
   all 8 channels of a 4051 multiplexer.  
