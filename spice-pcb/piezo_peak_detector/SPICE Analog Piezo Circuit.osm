@@ -1,0 +1,1030 @@
+View {
+Width 1.338582677 
+Height 1.338582677 
+Mag 11.4 
+Center 17.79361m 18.11854m 
+Grid 5 5 
+Index 0 0 
+PrintScale 0.0 
+FullWidth
+ShowHoles
+ShowNames
+ShowValues
+SolidPads
+VectorText
+SavedFrameString "29 119 975 908 0 0 1680 1027 " 
+PadFillColor 5898 30146 13107 
+GridColor 57344 57344 65280 
+HoleColor 55000 55000 65535 
+BackgroundColor 65535 65535 65535 
+SelectedSignalTraceColor 12345 54321 6789 
+CustomGrid "6.50 mm x 2.50 mm" 
+CustomGrid "6.80 mm x 2.60 mm" 
+CustomGrid "2.60 mm" 
+CustomGrid "50 mils x 77 mils" 
+CustomGrid "8 mm" 
+}
+
+Setup {
+Layers 1 
+TraceWidth 10 
+Spacing 10 
+SolderMaskRing 10 
+DefaultMetric 
+PreferImperial 
+}
+GerberOptions {
+NormalLayers yes 
+NormalLayersFlipOdd no 
+NormalLayersFlipEven no 
+PlaneLayers yes 
+PlaneLayersFlipOdd no 
+PlaneLayersFlipEven no 
+SilkLayers yes 
+SilkLayersFlipOdd no 
+SilkLayersFlipEven no 
+SolderMaskLayers yes 
+SolderMaskLayersFlipOdd no 
+SolderMaskLayersFlipEven no 
+FlattenCopperFlood no 
+DrillFile DRILL.TXT 
+Aux1File AUX1.GBR 
+Aux2File AUX2.GBR 
+Silk1File SILK1.GBR 
+Silk2File SILK2.GBR 
+Mask1File MASK1.GBR 
+Mask2File MASK2.GBR 
+Layer1File LAYER1.GBR 
+Layer2File LAYER2.GBR 
+Layer3File LAYER3.GBR 
+Layer4File LAYER4.GBR 
+LayerXFile LAYER%d.GBR 
+AuxXFile AUX%d.GBR 
+}
+
+PostscriptOptions {
+NormalLayers yes 
+NormalLayersFlipOdd no 
+NormalLayersFlipEven no 
+PlaneLayers yes 
+PlaneLayersFlipOdd no 
+PlaneLayersFlipEven no 
+SilkLayers yes 
+SilkLayersFlipOdd no 
+SilkLayersFlipEven no 
+SolderMaskLayers yes 
+SolderMaskLayersFlipOdd no 
+SolderMaskLayersFlipEven no 
+}
+
+
+Type VIA {
+NameData { 0 0 0 0 }
+ValueData { 0 0 0 0 }
+Pad A { Circle 50 }
+Pin 1 { A A A 0 0 20 P }
+}
+
+Type DIP18 {
+Note "18 Pin Dual Inline Package" 
+NameData { 50 0 125 0 }
+ValueData { 0 0 0 0 }
+Pad A { Rectangle 60 60 }
+Pad B { Circle 60 }
+Pin 1 { A B A 0 0 28 P }
+Pin 2 { B B B 100 0 28 P }
+Pin 3 { B B B 200 0 28 P }
+Pin 4 { B B B 300 0 28 P }
+Pin 5 { B B B 400 0 28 P }
+Pin 6 { B B B 500 0 28 P }
+Pin 7 { B B B 600 0 28 P }
+Pin 8 { B B B 700 0 28 P }
+Pin 9 { B B B 800 0 28 P }
+Pin 10 { B B B 800 300 28 P }
+Pin 11 { B B B 700 300 28 P }
+Pin 12 { B B B 600 300 28 P }
+Pin 13 { B B B 500 300 28 P }
+Pin 14 { B B B 400 300 28 P }
+Pin 15 { B B B 300 300 28 P }
+Pin 16 { B B B 200 300 28 P }
+Pin 17 { B B B 100 300 28 P }
+Pin 18 { B B B 0 300 28 P }
+Path Silk
+{ -50 275 W 5 850 275 850 25 -50 25 -50 50 -25 50 -25 25 -50 25 -50 135 -20
+135 -20 165 -50 165 -50 275 }
+}
+
+Type DIP20 {
+Note "20 Pin Dual Inline Package" 
+NameData { 50 425 125 0 }
+ValueData { 0 0 0 0 }
+Pad A { Rectangle 60 60 }
+Pad B { Circle 60 }
+Pin 1 { A B A 0 0 26 P }
+Pin 2 { B B B 100 0 26 P }
+Pin 3 { B B B 200 0 26 P }
+Pin 4 { B B B 300 0 26 P }
+Pin 5 { B B B 400 0 26 P }
+Pin 6 { B B B 500 0 26 P }
+Pin 7 { B B B 600 0 26 P }
+Pin 8 { B B B 700 0 26 P }
+Pin 9 { B B B 800 0 26 P }
+Pin 10 { B B B 900 0 26 P }
+Pin 11 { B B B 900 300 26 P }
+Pin 12 { B B B 800 300 26 P }
+Pin 13 { B B B 700 300 26 P }
+Pin 14 { B B B 600 300 26 P }
+Pin 15 { B B B 500 300 26 P }
+Pin 16 { B B B 400 300 26 P }
+Pin 17 { B B B 300 300 26 P }
+Pin 18 { B B B 200 300 26 P }
+Pin 19 { B B B 100 300 26 P }
+Pin 20 { B B B 0 300 26 P }
+Path Silk
+{ -50 250 W 5 950 250 950 50 -50 50 -50 250 }
+}
+
+Type DO34 {
+Note Diode 
+NameData { 40 125 -20 0 }
+ValueData { 0 0 0 0 }
+Pad A { Circle 62 }
+Pin A { A A A 300 0 28 P }
+Pin K { A A A 0 0 28 P }
+Path Silk
+{ 90 38 W 5 210 38 210 -38 90 -38 90 38 115 38 115 -38 110 -38 110 38 90
+38 }
+}
+
+Type FP14 {
+Note "14 Pin Flat Pack" 
+NameData { 50 25 75 0 }
+ValueData { 0 0 0 0 }
+Pad A { Hexagon 50 62 }
+Pin 1 { A A A 0 0 20 P }
+Pin 2 { A A A 50 -100 20 P }
+Pin 3 { A A A 100 0 20 P }
+Pin 4 { A A A 150 -100 20 P }
+Pin 5 { A A A 200 0 20 P }
+Pin 6 { A A A 250 -100 20 P }
+Pin 7 { A A A 300 0 20 P }
+Pin 8 { A A A 300 300 20 P }
+Pin 9 { A A A 250 400 20 P }
+Pin 10 { A A A 200 300 20 P }
+Pin 11 { A A A 150 400 20 P }
+Pin 12 { A A A 100 300 20 P }
+Pin 13 { A A A 50 400 20 P }
+Pin 14 { A A A 0 300 20 P }
+Path Silk
+{ -50 250 W 5 350 250 350 50 -50 50 -50 75 -25 75 -25 50 -50 50 -50 250 }
+}
+
+Type FP16 {
+Note "16 Pin Flat Pack" 
+NameData { 50 50 75 0 }
+ValueData { 0 0 0 0 }
+Pad A { Hexagon 50 62 }
+Pin 1 { A A A 0 0 20 P }
+Pin 2 { A A A 50 -100 20 P }
+Pin 3 { A A A 100 0 20 P }
+Pin 4 { A A A 150 -100 20 P }
+Pin 5 { A A A 200 0 20 P }
+Pin 6 { A A A 250 -100 20 P }
+Pin 7 { A A A 300 0 20 P }
+Pin 8 { A A A 350 -100 20 P }
+Pin 9 { A A A 350 450 20 P }
+Pin 10 { A A A 300 350 20 P }
+Pin 11 { A A A 250 450 20 P }
+Pin 12 { A A A 200 350 20 P }
+Pin 13 { A A A 150 450 20 P }
+Pin 14 { A A A 100 350 20 P }
+Pin 15 { A A A 50 450 20 P }
+Pin 16 { A A A 0 350 20 P }
+Path Silk
+{ -25 300 W 5 375 300 375 50 -25 50 -25 75 0 75 0 50 -25 50 -25 300 }
+}
+
+Type RCR05 {
+Note Resistor 
+NameData { 40 85 -20 0 }
+ValueData { 0 0 0 0 }
+Pad A { Circle 62 }
+Pin 1 { A A A 0 0 28 P }
+Pin 2 { A A A 300 0 28 P }
+Path Silk
+{ 70 33 W 5 230 33 230 -33 70 -33 70 33 }
+}
+
+Type SIP10 {
+Note "10 Pin Single Inline Package" 
+NameData { 50 -25 212 -90 }
+ValueData { 0 0 0 0 }
+Pad A { Rectangle 60 60 }
+Pad B { Circle 60 }
+Pin 1 { A B A 0 0 26 P }
+Pin 2 { B B B 0 -100 26 P }
+Pin 3 { B B B 0 -200 26 P }
+Pin 4 { B B B 0 -300 26 P }
+Pin 5 { B B B 0 -400 26 P }
+Pin 6 { B B B 0 -500 26 P }
+Pin 7 { B B B 0 -600 26 P }
+Pin 8 { B B B 0 -700 26 P }
+Pin 9 { B B B 0 -800 26 P }
+Pin 10 { B B B 0 -900 26 P }
+Path Silk
+{ -50 50 W 5 -50 -50 50 -50 -50 -50 -50 -950 50 -950 50 50 -50 50 }
+}
+
+Type 'n' {
+NameData { 0 0 0 0 Center }
+ValueData { 0 0 0 0 }
+Path Front
+{ 2 9 2 0 }
+Path Front
+{ 2 5.5 4.5 8 7 8 9.5 5.5 9.5 0 }
+}
+
+Type T2061 {
+Note Terminal 
+NameData { 50 -50 60 0 }
+ValueData { 0 0 0 0 }
+Pad A { Circle 100 }
+Pin 1 { A A A 0 0 45 P }
+Path Silk
+{ 0 -50 W 5 0 0 50 0 0 0 0 50 0 0 -50 0 0 0 0 -50 }
+}
+
+Type TO39/HS {
+Note Transistor 
+NameData { 50 115 -50 90 }
+ValueData { 0 0 0 0 }
+Pad A { Rectangle 62 62 }
+Pad B { Circle 62 }
+Pin 1 { A B A -110 100 28 P }
+Pin 2 { B B B -110 0 28 P }
+Pin 3 { B B B -110 -100 28 P }
+Path Front
+{ -25 0 0 0 }
+Path Silk
+{ 0 200 W 5 0 -200 -25 -200 -25 200 0 200 }
+}
+
+Type TO18/3F {
+Note "Field Effect Transistor" 
+NameData { 50 -62 -25 0 }
+ValueData { 0 0 0 0 }
+Pad A { Rectangle 62 62 }
+Pad B { Circle 62 }
+Pad C { Circle 196 Spacing 15 }
+Pad D { Circle 40 Spacing 93 }
+Pin S { A B A 123.5 123.5 28 P }
+Pin G { B B B 123.5 -123.5 28 P }
+Pin D { B B B -123.5 -123.5 28 P }
+Pin CEN { C D C 0 0 196 U }
+Path Silk
+{ 0 115 W 5 57 99 99 57 115 0 99 -57 57 -99 0 -115 -57 -99 -99 -57 -115 0
+-99 57 -57 99 0 115 20 115 20 135 -20 135 -20 115 0 115 }
+}
+
+Type 'd' {
+NameData { 0 0 0 0 Center }
+ValueData { 0 0 0 0 }
+Path Front
+{ 9.5 12 9.5 0 }
+Path Front
+{ 9.5 5.5 7 8 4.5 8 2 6 2 2.5 4.5 0 7 0 9.5 2.5 }
+}
+
+Type 'P' {
+NameData { 0 0 0 0 }
+ValueData { 0 0 0 0 }
+Path Front
+{ 2 0 2 12 8 12 10 10 10 8 8 6 2 6 }
+}
+
+Type 'J' {
+NameData { 0 0 0 0 }
+ValueData { 0 0 0 0 }
+Path Front
+{ 2 4 2 2 4 0 6 0 8 2 8 12 6 12 10 12 }
+}
+
+Type '0' {
+NameData { 0 0 0 0 }
+ValueData { 0 0 0 0 }
+Path Front
+{ 10 10 8 12 4 12 2 10 2 2 4 0 8 0 10 2 10 10 }
+Path Front
+{ 6 8 6 4 }
+}
+
+Type '9' {
+NameData { 0 0 0 0 }
+ValueData { 0 0 0 0 }
+Path Front
+{ 2 2 4 0 8 0 10 2 10 10 8 12 4 12 2 10 2 7 4 5 8 5 10 7 }
+}
+
+Type 'N' {
+NameData { 0 0 0 0 }
+ValueData { 0 0 0 0 }
+Path Front
+{ 2 0 2 12 10 0 10 12 }
+}
+
+Type '6' {
+NameData { 0 0 0 0 }
+ValueData { 0 0 0 0 }
+Path Front
+{ 10 10 8 12 4 12 2 10 2 2 4 0 8 0 10 2 10 5 8 7 4 7 2 5 }
+}
+
+Type 'u' {
+NameData { 0 0 0 0 Center }
+ValueData { 0 0 0 0 }
+Path Front
+{ 9.5 8 9.5 0 }
+Path Front
+{ 9.5 2 7.5 0 4 0 2 2 2 8 }
+}
+
+Type 't' {
+NameData { 0 0 0 0 Center }
+ValueData { 0 0 0 0 }
+Path Front
+{ 4 10 4 1 5 0 6.5 0 7.5 1 }
+Path Front
+{ 2 8 6 8 }
+}
+
+Type TO18/3T {
+Note "Bipolar Transistor" 
+NameData { 50 -62 -25 0 }
+ValueData { 0 0 0 0 }
+Pad A { Rectangle 62 62 }
+Pad B { Circle 62 }
+Pad C { Circle 196 Spacing 15 }
+Pad D { Circle 40 Spacing 93 }
+Pin E { A B A 123.5 123.5 28 P }
+Pin B { B B B 123.5 -123.5 28 P }
+Pin C { B B B -123.5 -123.5 28 P }
+Pin CEN { C D C 0 0 196 U }
+Path Silk
+{ 0 115 W 5 57 99 99 57 115 0 99 -57 57 -99 0 -115 -57 -99 -99 -57 -115 0
+-99 57 -57 99 0 115 20 115 20 135 -20 135 -20 115 0 115 }
+}
+
+Type 'A' {
+NameData { 0 0 0 0 }
+ValueData { 0 0 0 0 }
+Path Front
+{ 2 0 6 12 8.5 4.5 { 3.5 4.5 }
+10 0 }
+}
+
+Type '3' {
+NameData { 0 0 0 0 }
+ValueData { 0 0 0 0 }
+Path Front
+{ 2 10 4 12 8 12 10 10 10 8 8 6 { 6 6 }
+10 4 10 2 8 0 4 0 2 2 }
+}
+
+Type '2' {
+NameData { 0 0 0 0 }
+ValueData { 0 0 0 0 }
+Path Front
+{ 2 10 4 12 8 12 10 10 10 8 8 6 2 2 2 0 10 0 }
+}
+
+Type 'H' {
+NameData { 0 0 0 0 }
+ValueData { 0 0 0 0 }
+Path Front
+{ 2 12 2 6 { 10 6 { 10 0 }
+10 12 }
+2 0 }
+}
+
+Type '7' {
+NameData { 0 0 0 0 }
+ValueData { 0 0 0 0 }
+Path Front
+{ 2 12 10 12 4 0 }
+}
+
+Type 'Y' {
+NameData { 0 0 0 0 }
+ValueData { 0 0 0 0 }
+Path Front
+{ 2 12 6 6 { 10 12 }
+6 0 }
+}
+
+Type 'L' {
+NameData { 0 0 0 0 }
+ValueData { 0 0 0 0 }
+Path Front
+{ 2 12 2 0 10 0 }
+}
+
+Type 'T' {
+NameData { 0 0 0 0 }
+ValueData { 0 0 0 0 }
+Path Front
+{ 6 0 6 12 { 2 12 }
+10 12 }
+}
+
+Type '8' {
+NameData { 0 0 0 0 }
+ValueData { 0 0 0 0 }
+Path Front
+{ 8 6 10 8 10 10 8 12 4 12 2 10 2 8 4 6 8 6 10 4 10 2 8 0 4 0 2 2 2 4 4
+6 }
+}
+
+Type '5' {
+NameData { 0 0 0 0 }
+ValueData { 0 0 0 0 }
+Path Front
+{ 10 12 2 12 2 6 4 8 8 8 10 6 10 2 8 0 4 0 2 2 }
+}
+
+Type 'I' {
+NameData { 0 0 0 0 }
+ValueData { 0 0 0 0 }
+Path Front
+{ 4 0 4 12 }
+}
+
+Type 'E' {
+NameData { 0 0 0 0 }
+ValueData { 0 0 0 0 }
+Path Front
+{ 10 12 2 12 2 6 { 8 6 }
+2 0 10 0 }
+}
+
+Type 'O' {
+NameData { 0 0 0 0 }
+ValueData { 0 0 0 0 }
+Path Front
+{ 10 10 8 12 4 12 2 10 2 2 4 0 8 0 10 2 10 10 }
+}
+
+Type 'S' {
+NameData { 0 0 0 0 }
+ValueData { 0 0 0 0 }
+Path Front
+{ 10 10 8 12 4 12 2 10 2 8 4 6 8 6 10 4 10 2 8 0 4 0 2 2 }
+}
+
+Type CKR11 {
+Note Capacitor 
+NameData { 50 90 -25 0 }
+ValueData { 0 0 0 0 }
+Pad A { Circle 75 }
+Pin 1 { A A A 0 0 32 P }
+Pin 2 { A A A 350 0 32 P }
+Path Silk
+{ 80 50 W 5 270 50 270 -50 80 -50 80 50 }
+}
+
+Type 'C' {
+NameData { 0 0 0 0 }
+ValueData { 0 0 0 0 }
+Path Front
+{ 10 10 8 12 4 12 2 10 2 2 4 0 8 0 10 2 }
+}
+
+Type 'B' {
+NameData { 0 0 0 0 }
+ValueData { 0 0 0 0 }
+Path Front
+{ 2 0 2 12 8 12 10 10 10 8 8 6 { 2 6 }
+10 4 10 2 8 0 2 0 }
+}
+
+Type 'Q' {
+NameData { 0 0 0 0 }
+ValueData { 0 0 0 0 }
+Path Front
+{ 10 2 10 10 8 12 4 12 2 10 2 2 4 0 8 0 10 2 }
+Path Front
+{ 6 4 10 0 }
+}
+
+Type 'W' {
+NameData { 0 0 0 0 }
+ValueData { 0 0 0 0 }
+Path Front
+{ 2 12 4 0 6 12 8 0 10 12 }
+}
+
+Type 'D' {
+NameData { 0 0 0 0 }
+ValueData { 0 0 0 0 }
+Path Front
+{ 10 10 8 12 2 12 2 0 8 0 10 2 10 10 }
+}
+
+Type 'F' {
+NameData { 0 0 0 0 }
+ValueData { 0 0 0 0 }
+Path Front
+{ 10 12 2 12 2 6 { 8 6 }
+2 0 }
+}
+
+Type 'G' {
+NameData { 0 0 0 0 }
+ValueData { 0 0 0 0 }
+Path Front
+{ 10 10 8 12 4 12 2 10 2 2 4 0 8 0 10 2 10 5 8 5 }
+}
+
+Type COND25P {
+Note "25 Pin Connector" 
+NameData { 50 -50 525 0 }
+ValueData { 0 0 0 0 }
+Pad A { Circle 86 }
+Pad B { Connected Circle 86 Isolated Circle 15 Spacing 21.5 }
+Pad C { Circle 40 Spacing 39.5 }
+Pin 1 { A B A 648 0 38 P }
+Pin 2 { A B A 540 0 38 P }
+Pin 3 { A B A 432 0 38 P }
+Pin 4 { A B A 324 0 38 P }
+Pin 5 { A B A 216 0 38 P }
+Pin 6 { A B A 108 0 38 P }
+Pin 7 { A B A 0 0 38 P }
+Pin 8 { A B A -108 0 38 P }
+Pin 9 { A B A -216 0 38 P }
+Pin 10 { A B A -324 0 38 P }
+Pin 11 { A B A -432 0 38 P }
+Pin 12 { A B A -540 0 38 P }
+Pin 13 { A B A -648 0 38 P }
+Pin 14 { A B A 594 108 38 P }
+Pin 15 { A B A 486 108 38 P }
+Pin 16 { A B A 378 108 38 P }
+Pin 17 { A B A 270 108 38 P }
+Pin 18 { A B A 162 108 38 P }
+Pin 19 { A B A 54 108 38 P }
+Pin 20 { A B A -54 108 38 P }
+Pin 21 { A B A -162 108 38 P }
+Pin 22 { A B A -270 108 38 P }
+Pin 23 { A B A -378 108 38 P }
+Pin 24 { A B A -486 108 38 P }
+Pin 25 { A B A -594 108 38 P }
+Pin MTH { C C C -926 56 104 P }
+Pin MTH { C C C 926 56 104 P }
+Path Front
+{ 1044 395 -1044 395 -1040.5 -69 -790.5 -69 -790.5 356 790.5 356 790.5 -69
+1040.5 -69 1044 395 }
+Path Silk
+{ 1044 395 W 5 1044 434 -754 434 754 434 754 665 -754 665 -754 434 -1044
+434 -1044 395 1044 395 1044 395 }
+}
+
+Type 'V' {
+NameData { 0 0 0 0 }
+ValueData { 0 0 0 0 }
+Path Front
+{ 2 12 6 0 10 12 }
+}
+
+Type 'X' {
+NameData { 0 0 0 0 }
+ValueData { 0 0 0 0 }
+Path Front
+{ 2 12 10 0 }
+Path Front
+{ 2 0 10 12 }
+}
+
+Type "Micro-SMD Op-Amp" {
+NameData { 50 -200 175 0 }
+ValueData { 50 -100 -225 0 }
+Pad A { Rectangle 0.38m 1.04m }
+Pin 1 { A 0 0 0.47800m 145 0 U }
+Pin 2 { A 0 0 1.12800m 145 0 U }
+Pin 3 { A 0 0 70 145 0 U }
+Pin 4 { A 0 0 2.42800m 145 0 U }
+Pin 5 { A 0 0 0.47800m -0.55700m 0 U }
+Pin 6 { A 0 0 1.12800m -0.55700m 0 U }
+Pin 7 { A 0 0 70 -0.55700m 0 U }
+Pin 8 { A 0 0 2.42800m -0.55700m 0 U }
+Path Silk
+{ 1.42100m 0.04800m W 10 S 10 115 0.04800m 115 120 -0.07900m 120 -0.07900m
+0.04800m 1.42100m 0.04800m }
+}
+
+Type "SMD Capacitor" {
+NameData { 50 -145 90 0 }
+ValueData { 50 -35 -65 0 }
+Pad A { Rectangle 0.90m 1.70m }
+Pin 1 { A 0 0 3.02700m 30 0 U }
+Pin 2 { A 0 0 5 30 0 U }
+Path Silk
+{ 1.60m 0 W 10 S 10 3.20m 0 3.20m 1.60m 0 1.60m 0 0 1.60m 0 }
+}
+
+Type "SMD MOSFET" {
+NameData { 50 -140 115 0 }
+ValueData { 50 -55 -75 0 }
+Pad A { Connected Rectangle 0.55899m 0.72399m Isolated Rectangle 0.55899m 0.72398m
+}
+Pin 1 { A 0 0 0 0 0 U }
+Pin 2 { A 0 0 1.90m 0 0 U }
+Pin 3 { A 0 0 0.95m 1.96800m 0 U }
+Path Silk
+{ 0.96300m 0.35100m W 10 S 10 95 0.35100m 95 65 -0.48700m 65 -0.48700m 0.35100m
+0.96300m 0.35100m }
+}
+
+Type "SMD Diode" {
+NameData { 50 -135 35 0 }
+ValueData { 50 -75 -80 0 }
+Pad A { Rectangle 0.30m 0.40m }
+Pin 1 { A 0 0 0 0 0 U }
+Pin 2 { A 0 0 0.90m 0 0 U }
+Path Silk
+{ 0.48900m -10 W 10 S 10 35 -10 35 0.34600m 0.08900m 0.34600m 0.08900m -10
+0.48900m -10 }
+Path Silk
+{ 0.27300m 25 W 10 S 10 0.27300m -20 }
+}
+
+Type "Big Circle Pad~1~" {
+NameData { 50 -125 90 0 }
+ValueData { 50 -85 -145 0 }
+Pad A { Circle 4m }
+Pin 1 { A 0 0 5 -5 0 U }
+}
+
+Type "Big Circle Pad" {
+NameData { 50 -215 90 0 }
+ValueData { 50 -85 -145 0 }
+Pad A { Circle 4m }
+Pin 1 { A 0 0 5 -5 0 U }
+}
+
+Type '+' {
+NameData { 0 0 0 0 Center }
+ValueData { 0 0 0 0 }
+Path Front
+{ 2 6 10 6 }
+Path Front
+{ 6 10 6 2 }
+}
+
+Type 'p' {
+NameData { 0 0 0 0 Center }
+ValueData { 0 0 0 0 }
+Path Front
+{ 2 8 2 -4.5 }
+Path Front
+{ 2 2.5 4.5 0 7 0 9.5 2.5 9.5 5.5 7 8 4.5 8 2 6 }
+}
+
+Type "SMD Diode 2" {
+NameData { 50 -175 175 0 }
+ValueData { 50 0 -200 0 }
+Pad A { Rectangle 0.30m 0.40m }
+Pin 1 { A 0 0 0 10 0 U }
+Pin 2 { A 0 0 0.90m 10 0 U }
+Path Silk
+{ 0.40m 0 W 10 S 10 0.80m 0 0.80m 0.60m 0 0.60m 0 0 0.40m 0 }
+Path Silk
+{ 5 -15 W 10 S 10 5 40 }
+}
+
+Type "SMD Resistor" {
+NameData { 50 -135 90 0 }
+ValueData { 50 -35 -60 0 }
+Pad A { Rectangle 0.90m 1.70m }
+Pin 1 { A 0 0 120 30 0 U }
+Pin 2 { A 0 0 0.14800m 30 0 U }
+Path Silk
+{ 1.60m 0 W 10 S 10 3.20m 0 3.20m 1.60m 0 1.60m 0 0 1.60m 0 }
+}
+
+Type CKR05LD {
+Note "Lay down capacitor" 
+NameData { 40 50 175 0 }
+ValueData { 0 0 0 0 }
+Pad A { Circle 75 }
+Pin 1 { A A A 0 0 32 P }
+Pin 2 { A A A 200 0 32 P }
+Path Silk
+{ 0 75 W 5 200 75 200 275 0 275 0 100 0 75 }
+}
+
+Type CKR14 {
+Note Capacitor 
+NameData { 50 115 -25 0 }
+ValueData { 0 0 0 0 }
+Pad A { Circle 75 }
+Pin 1 { A A A 0 0 36 P }
+Pin 2 { A A A 625 0 36 P }
+Path Silk
+{ 100 75 W 5 520 75 520 -75 100 -75 100 75 }
+}
+
+Type 'Z' {
+NameData { 0 0 0 0 }
+ValueData { 0 0 0 0 }
+Path Front
+{ 2 12 10 12 2 0 10 0 }
+}
+
+Type '1' {
+NameData { 0 0 0 0 }
+ValueData { 0 0 0 0 }
+Path Front
+{ 4 10 6 12 6 0 { 4 0 }
+8 0 }
+}
+
+Type '4' {
+NameData { 0 0 0 0 }
+ValueData { 0 0 0 0 }
+Path Front
+{ 8 0 8 12 2 5 10 5 }
+}
+
+Type '-' {
+NameData { 0 0 0 0 }
+ValueData { 0 0 0 0 }
+Path Front
+{ 2 6 10 6 }
+}
+
+Type '/' {
+NameData { 0 0 0 0 }
+ValueData { 0 0 0 0 }
+Path Front
+{ 2 0 10 12 }
+}
+
+Type '.' {
+NameData { 0 0 0 0 }
+ValueData { 0 0 0 0 }
+Path Front
+{ 5 0 6 0 6 1 5 1 5 0 }
+}
+
+Type 'K' {
+NameData { 0 0 0 0 }
+ValueData { 0 0 0 0 }
+Path Front
+{ 2 12 2 4 { 4 6 { 10 12 }
+10 0 }
+2 0 }
+}
+
+Type 'R' {
+NameData { 0 0 0 0 }
+ValueData { 0 0 0 0 }
+Path Front
+{ 2 0 2 12 8 12 10 10 10 8 8 6 { 2 6 }
+10 0 }
+}
+
+Type 'M' {
+NameData { 0 0 0 0 }
+ValueData { 0 0 0 0 }
+Path Front
+{ 2 0 2 12 6 6 10 12 10 0 }
+}
+
+Type 'U' {
+NameData { 0 0 0 0 }
+ValueData { 0 0 0 0 }
+Path Front
+{ 2 12 2 2 4 0 8 0 10 2 10 12 }
+}
+
+Type COND25P01 {
+NameData { 50 -700 458 0 }
+ValueData { 0 0 0 0 }
+Pad A { Circle 86 }
+Pad B { Connected Circle 86 Isolated Circle 15 Spacing 21.5 }
+Pin 1 { A B A 0 0 38 P }
+Pin 2 { A B A -108 0 38 P }
+Pin 3 { A B A -216 0 38 P }
+Pin 4 { A B A -324 0 38 P }
+Pin 5 { A B A -432 0 38 P }
+Pin 6 { A B A -540 0 38 P }
+Pin 7 { A B A -648 0 38 P }
+Pin 8 { A B A -756 0 38 P }
+Pin 9 { A B A -864 0 38 P }
+Pin 10 { A B A -972 0 38 P }
+Pin 11 { A B A -1080 0 38 P }
+Pin 12 { A B A -1188 0 38 P }
+Pin 13 { A B A -1296 0 38 P }
+Pin 14 { A B A -54 108 38 P }
+Pin 15 { A B A -162 108 38 P }
+Pin 16 { A B A -270 108 38 P }
+Pin 17 { A B A -378 108 38 P }
+Pin 18 { A B A -486 108 38 P }
+Pin 19 { A B A -594 108 38 P }
+Pin 20 { A B A -702 108 38 P }
+Pin 21 { A B A -810 108 38 P }
+Pin 22 { A B A -918 108 38 P }
+Pin 23 { A B A -1026 108 38 P }
+Pin 24 { A B A -1134 108 38 P }
+Pin 25 { A B A -1242 108 38 P }
+Path Front
+{ 452 608 -1748 608 -1748 548 452 548 452 608 }
+Path Silk
+{ 164 569 W 5 164 413 -1460 413 -1460 569 396 569 396 608 -1692 608 -1692
+569 164 569 }
+}
+
+Type DIP14 {
+Note "14 Pin Dual Inline Package" 
+NameData { 50 225 125 0 }
+ValueData { 0 0 0 0 }
+Pad A { Rectangle 60 60 }
+Pad B { Circle 60 }
+Pin 1 { A B A 0 0 26 P }
+Pin 2 { B B B 100 0 26 P }
+Pin 3 { B B B 200 0 26 P }
+Pin 4 { B B B 300 0 26 P }
+Pin 5 { B B B 400 0 26 P }
+Pin 6 { B B B 500 0 26 P }
+Pin 7 { B B B 600 0 26 P }
+Pin 8 { B B B 600 300 26 P }
+Pin 9 { B B B 500 300 26 P }
+Pin 10 { B B B 400 300 26 P }
+Pin 11 { B B B 300 300 26 P }
+Pin 12 { B B B 200 300 26 P }
+Pin 13 { B B B 100 300 26 P }
+Pin 14 { B B B 0 300 26 P }
+Path Silk
+{ -75 250 W 5 675 250 675 50 -75 50 -75 250 }
+}
+
+Type DIP16 {
+Note "16 Pin Dual Inline Package" 
+NameData { 50 275 125 0 }
+ValueData { 0 0 0 0 }
+Pad A { Rectangle 60 60 }
+Pad B { Circle 60 }
+Pin 1 { A B A 0 0 26 P }
+Pin 2 { B B B 100 0 26 P }
+Pin 3 { B B B 200 0 26 P }
+Pin 4 { B B B 300 0 26 P }
+Pin 5 { B B B 400 0 26 P }
+Pin 6 { B B B 500 0 26 P }
+Pin 7 { B B B 600 0 26 P }
+Pin 8 { B B B 700 0 26 P }
+Pin 9 { B B B 700 300 26 P }
+Pin 10 { B B B 600 300 26 P }
+Pin 11 { B B B 500 300 26 P }
+Pin 12 { B B B 400 300 26 P }
+Pin 13 { B B B 300 300 26 P }
+Pin 14 { B B B 200 300 26 P }
+Pin 15 { B B B 100 300 26 P }
+Pin 16 { B B B 0 300 26 P }
+Path Silk
+{ -50 250 W 5 750 250 750 50 -50 50 -50 250 }
+}
+
+
+Part "Big Circle Pad" { Name PIn Loc { 17.02100m 8.05200m }
+NameData { 50 11.85101m 7.45301m 0 }
+ValueData { 0 14.86200m 4.36900m 0 }
+}
+Part "Big Circle Pad" { Name PGnd Loc { 22.02100m 8.05200m }
+NameData { 50 24.55101m 7.45301m 0 }
+ValueData { 0 19.86200m 4.36900m 0 }
+}
+Part "SMD Resistor" { Name R1 Loc { 7.98m 600 }
+NameData { 50 4.94799m 610 0 }
+}
+Part void { Name O Loc { 20.92800m 19.68700m 180 }
+NameData { 50 22.73600m 18.72m 180 }
+ValueData { 0 23.46800m 25.40200m 180 }
+Pad A { Rectangle 0.38m 1.04m }
+Pin 1 { A A A 20.45m 16.00400m 0 U }
+Pin 2 { A A A 19.80m 16.00400m 0 U }
+Pin 3 { A A A 19.15m 16.00400m 0 U }
+Pin 4 { A A A 18.50m 16.00400m 0 U }
+Pin 5 { A A A 20.45m 20.24400m 0 U }
+Pin 6 { A A A 19.80m 20.24400m 0 U }
+Pin 7 { A A A 19.15m 20.24400m 0 U }
+Pin 8 { A A A 18.50m 20.24400m 0 U }
+Path S 1 { 19.50700m 19.63900m W 10 S 10 18.00700m 19.63900m 18.00700m 16.63900m
+21.00700m 16.63900m 21.00700m 19.63900m 19.50700m 19.63900m }
+Path S 1 { 18.76900m 17.02m W 10 S 10 18.26100m 17.02m }
+}
+Part "SMD Resistor" { Name R2 Loc { 22.86300m 13.13200m 180 }
+NameData { 50 930 465 0 }
+}
+Part "Big Circle Pad" { Name 5V Loc { 17.87299m 25.12700m }
+NameData { 50 17.02100m 27.48300m 0 }
+ValueData { 0 15.71399m 21.44400m 0 }
+}
+Part "Big Circle Pad" { Name GND Loc { 7.87300m 25.12700m }
+NameData { 50 6.35300m 27.48300m 0 }
+}
+Part "SMD Capacitor" { Name C Loc { 315 490 }
+NameData { 50 5.83699m 500 0 }
+ValueData { 0 280 425 0 }
+}
+Part "SMD MOSFET" { Name M Loc { 10.47500m 20.63700m 180 }
+NameData { 50 6.15700m 19.11300m 0 }
+ValueData { 0 11.87200m 22.54200m 180 }
+}
+Part "SMD Diode 2" { Name D Loc { 14.98900m 12.87800m 90 }
+NameData { 50 14.22700m 11.10m 0 }
+}
+Part "Big Circle Pad" { Name RST Loc { 12.87300m 25.12700m }
+NameData { 50 11.56m 27.48300m 0 }
+ValueData { 0 10.71400m 21.44400m 0 }
+}
+Part "Big Circle Pad" { Name AOut Loc { 22.87299m 25.12700m }
+NameData { 50 21.08500m 27.48300m 0 }
+ValueData { 0 20.71399m 21.44400m 0 }
+}
+
+
+Signal "**Signal 1**" 
+{ D-2 O-4 }
+Signal "**Signal 4**" 
+{ O-2 PIn-1 R2-1 }
+Signal "**Signal 5**" 
+{ C-1 D-1 M-3 O-3 O-5 R1-1 }
+Signal "**Signal 9**" 
+{ M-1 RST-1 }
+Signal "**Signal 11**" 
+{ 5V-1 O-8 }
+Signal "**Signal 12**" 
+{ AOut-1 O-6 O-7 }
+Signal "**Signal 13**" 
+{ C-2 GND-1 M-2 O-1 PGnd-1 R1-2 R2-2 }
+
+Layer 1 { Outer
+AnnularRing 20 VoidRing 20 SurroundWidth
+10 PathColor 56000 2000 1500 Invisible
+
+}
+
+SilkLayer 1 { Outer
+AnnularRing 20 VoidRing 20 SurroundWidth
+10 PathColor 0 32000 4000 Visible
+
+}
+SilkLayer 2 { Outer
+AnnularRing 20 VoidRing 20 SurroundWidth
+10 PathColor 32000 40000 32000 Visible
+
+}
+
+MaskLayer 1 { Outer
+AnnularRing 20 VoidRing 20 SurroundWidth
+10 PathColor 0 32000 4000 Invisible
+
+}
+MaskLayer 2 { Outer
+AnnularRing 20 VoidRing 20 SurroundWidth
+10 PathColor 32000 40000 32000 Invisible
+
+}
+
+AuxLayer 1 { Outer
+AnnularRing 20 VoidRing 20 SurroundWidth
+10 PathColor 0 32000 4000 Visible
+
+}
+AuxLayer 2 { Outer
+AnnularRing 20 VoidRing 20 SurroundWidth
+10 PathColor 32000 40000 32000 Visible
+
+}
+
+
+
+
+Path L 1 { P O-2 19.80m 16.00400m W 20 S 10 19.81500m 14.52900m P R2-1 19.81500m
+12.37m 18.54500m 10.08400m P PIn-1 17.14800m 7.92500m }
+Path L 1 { P O-3 19.15m 16.00400m W 20 S 10 750 585 17.52900m 13.89400m P D-1 14.73500m
+12.87800m P C-1 11.02800m 520 P R1-1 11.02800m 630 { P M-3 375 735 }
+18.03700m 18.21200m 20.45m 18.21200m P O-5 20.45m 20.24400m }
+Path L 1 { P O-4 18.50m 16.00400m W 20 S 10 17.02100m 15.16400m P D-2 14.73500m
+13.77800m }
+Path L 1 { P 5V-1 17.99999m 25m W 20 S 10 725 850 P O-8 18.50m 20.24400m }
+Path L 1 { P GND-1 8m 25m W 20 S 10 P M-2 8.57500m 20.63700m P R1-2 320 630 P C-2 320
+520 11.43300m 5.13100m 21.72m 5.13100m P PGnd-1 22.14800m 7.92500m P R2-2 22.71500m
+12.37m 21.59300m 14.14800m P O-1 20.45m 16.00400m }
+Path L 1 { P M-1 10.47500m 20.63700m W 20 S 10 P RST-1 13m 25m }
+Path L 1 { P AOut-1 22.99999m 25m W 20 S 10 755 845 P O-7 19.15m 20.24400m P O-6 19.80m
+20.24400m }
+
+
+
+
+
+End

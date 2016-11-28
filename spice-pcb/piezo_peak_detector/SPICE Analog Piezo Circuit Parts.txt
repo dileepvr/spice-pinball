@@ -1,0 +1,18 @@
+Each Circuit Requires
+=====================
+2x 1M resistors
+http://www.mouser.com/ProductDetail/Vishay-Dale/CRCW12061M00FKEA/?qs=sGAEpiMZZMtlubZbdhIBIDnVyQvhnty9DHlKqvST9%252bs%3d
+
+1x 10nF capacitor
+http://www.mouser.com/ProductDetail/Vishay-Vitramon/VJ0402Y103KCAAC/?qs=sGAEpiMZZMsh%252b1woXyUXj1jBoXWXNO%252bHOnrKFusQfw0%3d
+
+1x 1N4001 rectifier/diode
+http://www.mouser.com/ProductDetail/Diodes-Incorporated/BAV116S92-7/?qs=sGAEpiMZZMtoHjESLttvkpVF8T0dtWnZhsbQHASG%2fNXPQLDYDanhzw%3d%3d
+
+1x ALD111933 MOSFET
+http://www.mouser.com/ProductDetail/Vishay-Siliconix/SQ2308CES-T1_GE3/?qs=sGAEpiMZZMshyDBzk1%2fWi%252bpE1VGhjkFSYoEo8O0VnOaLS7AHGqXPBQ%3d%3d
+
+1x NE5532 dual op-amp
+http://www.mouser.com/ProductDetail/ON-Semiconductor/MC33202DMR2G/?qs=sGAEpiMZZMtOXy69nW9rM%252bgzPAgEafk76WKMXO7ibeE%3d
+
+Will also need 10K resistor shorted between ground and the reset pin at the Arduino, with the Arduino's reset pin connected to the peak detector circuit
